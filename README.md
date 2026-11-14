@@ -1,7 +1,7 @@
 # Shinepal
 這是享尼尼泊爾國際志工團的官方網站，之後的最新消息會在這裡公布
 
-網址：https://egor0718-littledino.github.io/Shinepal/
+網址：https://shinepal.github.io/
 
 ## 這裡面有什麼？
 
