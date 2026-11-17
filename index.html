@@ -226,6 +226,13 @@ h3{font-size:20px;font-weight:700;line-height:1.4}
 .nwtxt h3{margin:0;font-size:18px;font-weight:900;color:#2B2420}
 .nwtxt p{margin:0;font-size:14px;line-height:1.5;font-weight:600;color:#2B2420}
 .nwgo{font-size:13px;font-weight:900;color:#2B2420;text-decoration:underline}
+/* tag + title on one line, text block top-aligned with the cover */
+.nwcard{align-items:flex-start}
+.nwtxt{grid-template-columns:auto minmax(0,1fr);column-gap:8px;row-gap:4px;align-items:baseline}
+.nwtxt .nwtag{grid-column:1;align-self:baseline;white-space:nowrap}
+.nwtxt h3{grid-column:2;line-height:1.3}
+.nwtxt p,.nwtxt .nwgo{grid-column:1/-1}
+.nwtxt .nwgo{justify-self:start;margin-top:2px}
 @media (prefers-reduced-motion: reduce){.nwhead h2::before{animation:none}.nwtrack{scroll-behavior:auto}.nwcard{transition:none}}
 /* product page */
 .pdp{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(16px,2.4vw,28px);background:var(--paper);border-radius:20px;padding:clamp(14px,2.2vw,22px);margin:0 auto 22px;max-width:880px;box-shadow:0 2px 0 var(--line),0 18px 30px -22px var(--shadow)}
