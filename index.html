@@ -2310,4 +2310,29 @@ h1.fancy .ch:hover{animation:chJump .45s ease}
 })();
 </script>
 
+
+<script>
+/* News cards: if a title wraps onto a short second line (≤ half of the first), widen that card so the title fits on one line. */
+(function(){
+  var tr=document.getElementById('nwTrack');if(!tr)return;
+  function fit(){
+    var max=tr.clientWidth-8;
+    [].forEach.call(tr.querySelectorAll('.nwcard'),function(c){
+      c.style.flexBasis='';
+      var h=c.querySelector('.nwtxt h3');if(!h)return;
+      var avail=h.clientWidth;
+      h.style.whiteSpace='nowrap';var need=h.scrollWidth;h.style.whiteSpace='';
+      var extra=need-avail;
+      if(extra<=0||extra>avail*0.5)return;
+      var w=Math.ceil(c.getBoundingClientRect().width+extra+2);
+      if(w<=max)c.style.flexBasis=w+'px';
+    });
+  }
+  var t;function later(){clearTimeout(t);t=setTimeout(fit,120);}
+  window.addEventListener('resize',later);
+  new MutationObserver(later).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+  window.addEventListener('load',fit);fit();
+})();
+</script>
 </body></html>
