@@ -362,6 +362,22 @@ h3{font-size:20px;font-weight:700;line-height:1.4}
 .histgrid .nwcard{flex:none}
 .nwempty{margin:8px 2px;font-weight:700;color:var(--ink-2)}
 .nwempty a{color:var(--red);font-weight:900}
+.bdform{display:grid;gap:12px;max-width:640px;padding:16px;border-radius:16px;background:var(--wall);border:2px solid var(--line)}
+.bdform label{display:grid;gap:4px;font-weight:700}
+.bdform input,.bdform textarea{font:inherit;padding:10px 12px;border-radius:10px;border:2px solid var(--line);background:var(--paper);color:var(--ink);resize:vertical}
+.bdform input:focus,.bdform textarea:focus{outline:none;border-color:var(--red)}
+.bdhp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.bdrow{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.bdcount,.bdnote{font-size:13px;color:var(--ink-2);margin:0}
+.bdstatus{margin:0;font-weight:700;color:var(--red);min-height:1.2em}
+.bdform .evbtn{margin-top:0;cursor:pointer}
+.bdform .evbtn:disabled{opacity:.6;cursor:wait}
+.bdlist{display:grid;gap:12px;margin-top:22px;max-width:640px}
+.bdcard{padding:12px 16px;border-radius:14px;background:var(--paper);border:2px solid var(--line);box-shadow:0 2px 0 var(--line)}
+.bdhead{display:flex;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:4px}
+.bdhead b{font-weight:900}
+.bdhead time{font-size:12px;color:var(--ink-2)}
+.bdcard p{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
 .backlink{display:inline-block;margin-bottom:14px;font-weight:700;text-decoration:none;color:var(--red)}
 .daygroup{margin-top:28px}
 .daygroup h3{margin-bottom:10px}
@@ -878,6 +894,7 @@ h1.fancy .ch:hover{animation:chJump .45s ease}
     <div class="navmenu" id="navMenu" hidden>
       <a href="#photos" data-i18n="navPhotos2">尼1314服務相片</a>
       <a href="#history" data-i18n="navHist">歷史訊息</a>
+      <a href="#board" data-i18n="navBoard">留言板</a>
     </div>
   </div>
 </header>
@@ -1217,6 +1234,79 @@ h1.fancy .ch:hover{animation:chJump .45s ease}
 })();
 </script>
 
+<main id="boardMain" hidden>
+  <div class="wrap">
+    <section id="board">
+      <div class="paper perf">
+        <a class="backlink" href="#hero" data-i18n="back">← 回到首頁</a>
+        <div class="sec-head">
+          <h2 data-i18n="boardH">留言板</h2>
+          <p data-i18n="boardP">想對享尼說些什麼？加油打氣、提問或分享，都歡迎留下來！</p>
+        </div>
+        <form class="bdform" id="bdForm" novalidate>
+          <label><span data-i18n="bdName">暱稱（可不填）</span><input id="bdName" maxlength="30" autocomplete="nickname"></label>
+          <label><span data-i18n="bdMsg">留言內容</span><textarea id="bdMsg" maxlength="500" rows="4" required></textarea></label>
+          <input class="bdhp" id="bdHp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="bdrow"><span class="bdcount" id="bdCount">0 / 500</span><button type="submit" class="evbtn" id="bdSend" data-i18n="bdSend">送出留言</button></div>
+          <p class="bdnote" data-i18n="bdNote">留言送出後會公開顯示在這裡，請勿留下電話、地址等個人資料。</p>
+          <p class="bdstatus" id="bdStatus" role="status" aria-live="polite"></p>
+        </form>
+        <div class="bdlist" id="bdList"></div>
+      </div>
+    </section>
+  </div>
+</main>
+<script>
+(function(){
+  /* Supabase settings: fill in the Project URL and the publishable (anon) key. */
+  var SB_URL='', SB_KEY='';
+  var list=document.getElementById('bdList'),form=document.getElementById('bdForm'),st=document.getElementById('bdStatus'),
+      msg=document.getElementById('bdMsg'),nm=document.getElementById('bdName'),cnt=document.getElementById('bdCount'),send=document.getElementById('bdSend');
+  function L(){return document.documentElement.lang==='en';}
+  function T(zh,en){return L()?en:zh;}
+  function hdr(x){var h={apikey:SB_KEY,'Content-Type':'application/json'};if(/^eyJ/.test(SB_KEY))h.Authorization='Bearer '+SB_KEY;for(var k in x)h[k]=x[k];return h;}
+  var ok=!!(SB_URL&&SB_KEY);
+  if(!ok){form.hidden=true;list.innerHTML='';var p=document.createElement('p');p.className='nwempty';p.setAttribute('data-i18n','bdSoon');p.textContent='留言板即將開放，敬請期待！';list.appendChild(p);}
+  function fmt(d){var t=new Date(d);return t.toLocaleString(L()?'en-US':'zh-TW',{timeZone:'Asia/Taipei',year:'numeric',month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'});}
+  function render(rows){
+    list.innerHTML='';
+    if(!rows.length){var e=document.createElement('p');e.className='nwempty';e.textContent=T('還沒有人留言，來當第一個吧！','No messages yet. Be the first!');list.appendChild(e);return;}
+    rows.forEach(function(r){
+      var c=document.createElement('article');c.className='bdcard';
+      var h=document.createElement('div');h.className='bdhead';
+      var b=document.createElement('b');b.textContent=r.name||T('匿名','Anonymous');
+      var t=document.createElement('time');t.dateTime=r.created_at;t.textContent=fmt(r.created_at);
+      h.appendChild(b);h.appendChild(t);
+      var p=document.createElement('p');p.textContent=r.message;
+      c.appendChild(h);c.appendChild(p);list.appendChild(c);
+    });
+  }
+  var loaded=false;
+  window.loadBoard=function(force){
+    if(!ok||(loaded&&!force))return;loaded=true;
+    fetch(SB_URL+'/rest/v1/messages?select=name,message,created_at&order=created_at.desc&limit=200',{headers:hdr({})})
+      .then(function(r){if(!r.ok)throw r;return r.json();}).then(render)
+      .catch(function(){loaded=false;list.textContent=T('留言載入失敗，請稍後再試。','Could not load messages. Please try again later.');});
+  };
+  msg.addEventListener('input',function(){cnt.textContent=msg.value.length+' / 500';});
+  form.addEventListener('submit',function(e){
+    e.preventDefault();if(!ok)return;
+    var text=msg.value.trim(),name=nm.value.trim().slice(0,30);
+    if(document.getElementById('bdHp').value)return;
+    if(!text){st.textContent=T('請先寫下留言內容。','Please write a message first.');msg.focus();return;}
+    var last=0;try{last=+localStorage.getItem('bdLast')||0;}catch(_){}
+    if(Date.now()-last<30000){st.textContent=T('留言太頻繁了，請 30 秒後再試。','Please wait 30 seconds before posting again.');return;}
+    send.disabled=true;st.textContent=T('送出中…','Sending…');
+    fetch(SB_URL+'/rest/v1/messages',{method:'POST',headers:hdr({Prefer:'return=minimal'}),body:JSON.stringify({name:name||(L()?'Anonymous':'匿名'),message:text})})
+      .then(function(r){if(!r.ok)throw r;
+        try{localStorage.setItem('bdLast',String(Date.now()));}catch(_){}
+        msg.value='';cnt.textContent='0 / 500';st.textContent=T('謝謝你的留言！','Thanks for your message!');window.loadBoard(true);})
+      .catch(function(){st.textContent=T('送出失敗，請稍後再試。','Sending failed. Please try again later.');})
+      .then(function(){send.disabled=false;});
+  });
+})();
+</script>
+
 <dialog class="lb" id="lb" aria-label="Photo viewer">
   <button type="button" class="x" id="lbX" aria-label="Close">×</button>
   <button type="button" class="pv" id="lbP" aria-label="Previous">‹</button>
@@ -1319,7 +1409,7 @@ h1.fancy .ch:hover{animation:chJump .45s ease}
       futureH:'傳承與展望',futureP:'點選卡片，看我們接下來想做的兩件事。',n1t:'完善線上病例系統',n1d:'精準掌握用藥量',n2t:'和當地醫院合作',n2d:'強化義診後續追蹤與轉介',
       goalsH:'永續發展目標',goalsP:'我們的工作對應這五項聯合國永續發展目標。',
       thanksH:'謝謝你認識我們',
-      footA:'國防醫學大學享尼尼泊爾國際志工團',footB:'內容整理自團隊成果簡報「尼14成發影片」。照片為團隊活動紀錄。',navPhotos:'其他活動相片',navMore:'其他',navPhotos2:'尼1314服務相片',navHist:'歷史訊息',histH:'歷史訊息',histP:'發布超過一週的消息，以及已經結束的活動，都收在這裡。',histEmpty:'目前還沒有歷史訊息。',nwEmpty:'目前沒有新消息，',nwEmptyGo:'看看歷史訊息 →',back:'← 回到首頁',photosH:'其他活動相片',photosP:'這裡收錄還沒放進各主題的活動紀錄。點照片可以放大。',rtTw:'台灣',rtNp:'尼泊爾',rtTh:'泰國轉機',mapCap:'飛行路線：從台灣出發，先在泰國轉機，再飛到尼泊爾。局部放大示意，位置為概略。'},
+      footA:'國防醫學大學享尼尼泊爾國際志工團',footB:'內容整理自團隊成果簡報「尼14成發影片」。照片為團隊活動紀錄。',navPhotos:'其他活動相片',navMore:'其他',navPhotos2:'尼1314服務相片',navHist:'歷史訊息',navBoard:'留言板',boardH:'留言板',boardP:'想對享尼說些什麼？加油打氣、提問或分享，都歡迎留下來！',bdName:'暱稱（可不填）',bdMsg:'留言內容',bdSend:'送出留言',bdNote:'留言送出後會公開顯示在這裡，請勿留下電話、地址等個人資料。',bdSoon:'留言板即將開放，敬請期待！',histH:'歷史訊息',histP:'發布超過一週的消息，以及已經結束的活動，都收在這裡。',histEmpty:'目前還沒有歷史訊息。',nwEmpty:'目前沒有新消息，',nwEmptyGo:'看看歷史訊息 →',back:'← 回到首頁',photosH:'其他活動相片',photosP:'這裡收錄還沒放進各主題的活動紀錄。點照片可以放大。',rtTw:'台灣',rtNp:'尼泊爾',rtTh:'泰國轉機',mapCap:'飛行路線：從台灣出發，先在泰國轉機，再飛到尼泊爾。局部放大示意，位置為概略。'},
     en:{brandSub:'Nepal Volunteer Group',followL:'Follow us',navWhat:'What we do',navHealth:'Health education',navComputer:'Computer classes',navClinic:'Free clinic',navImpact:'Results',navSites:'Sites',sitesH:'Where we went',sitesP:'Our service sites in Nepal. Use the links to open each place in Google Maps.',sitesCap:'Sketch map; locations are approximate and not to scale. Tap a pin, mountain or river to zoom in.',npReset:'Back to full map',gmap:'Open in Google Maps',s_kt:'Kathmandu',s_pk:'Pokhara',s_ch:'Chitwan',s_gk:'Gorkha (last year)',m_ev:'Mt. Everest',m_kc:'Kangchenjunga',m_mk:'Makalu',m_dh:'Dhaulagiri',m_an:'Annapurna I',m_ms:'Manaslu',r_ko:'Koshi River',r_ga:'Gandaki River',r_ka:'Karnali River',c_cn:'China (Tibet)',c_pl:'Tibetan Plateau',c_in:'India',c_gp:'Gangetic Plain',c_bt:'Bhutan',r_gg:'Ganges',r_br:'Yarlung Tsangpo',rk1:'Main rivers (Ganges, Yarlung Tsangpo)',rk2:'Nepal’s three big rivers (tributaries)',rk3:'Fainter once outside Nepal',pv_sd:'Sudurpashchim',pv_ka:'Karnali',pv_lu:'Lumbini',pv_ga:'Gandaki',pv_ba:'Bagmati',pv_ma:'Madhesh',pv_ko:'Koshi',ct_bi:'Biratnagar',ct_bg:'Birgunj',ct_jk:'Janakpur',ct_bu:'Butwal',ct_ng:'Nepalgunj',ct_dh:'Dhangadhi',ct_su:'Surkhet',ct_cap:'Capital',lyA:'Provinces',lyT:'Terrain',ak:'Colors = 7 provinces; dashed rings = main cities; solid ring = capital (boundaries are approximate)',lyAria:'Map layers',navFuture:'Looking ahead',nw_dx_tag:'Photos',nw_dx_t:'ShiNepal 14 & 15 big welcome party',nw_dx_p:'ShiNepal 12, 13 and 14 came together to welcome ShiNepal 15. We shared KFC, played Kahoot, and got to know each other better as a team.',nw_wx_tag:'Photos',nw_wx_t:'ShiNepal 14 & 15 welcome party',nw_wx_p:'New and returning members met up, took turns introducing themselves, and ended with a tiger-claw group photo!',nw_wx_go:'See all photos',vidNav:'Videos',vidH:'ShiNepal videos',vidP:'Two team videos. Press play to watch, or “Watch larger” to enlarge.',vidT1:'ShiNepal teaser',vidD1:'Temples, prayer wheels and the Himalaya: a first look at where we go.',vidT2:'Blessings from Nepal',vidD2:'Health lessons, the clinic and the children’s smiles, ending with a “Namaste Taiwan” from the kids.',vidZoom:'Watch larger',vidClose:'Close',newsH:'Latest news',newsPrev:'Previous',newsNext:'Next',newsGo:'See more',nw_ev_tag:'Campus booth',nw_ev_t:'Namaste, one more combo!',nw_ev_p:'Sat 11/21, campus anniversary: the ShiNepal booth is open! A fried-snack combo with Nepali spiced milk tea for just NT$120, plus handmade goods from Nepal.',nw_ev_w:'Sat',nw_ev_go:'See the booth posters',nw_sale_tag:'New',nw_sale_t:'Charity-sale items are online',nw_sale_p:'See the details and prices of the ShiNepal dry-fit T-shirt and our other charity-sale items.',nw_don_tag:'New',nw_don_t:'Donation gifts preview',nw_don_p:'Every donation gets a certificate, with ShiNepal products and a children’s blessing card by amount. (Some tiers are drafts.)',evTag:'Campus event',evDate:'11/21',evDow:'Sat',evT:'11/21 campus anniversary: eat well and do good at the ShiNepal booth!',evP:'On the National Defense Medical University anniversary, the ShiNepal volunteer group has a booth on campus. Come find us:<ul><li>🍟 <b>“Namaste, one more combo!” for just NT$120</b>: golden fries, crispy cheese rings and fried chicken bites, with a warm cup of Nepali spiced milk tea.</li><li>🐑 <b>Handmade goods from Nepal</b>: fuzzy felt animals, singing bowls, khukuri knives and wooden chess sets.</li></ul>Every dollar from the booth goes to our next trip to Nepal: the free clinic, health lessons and computer classes. Grab a combo, take home a keepsake, and help the children of Nepal!',supP:'Every bit of support powers our next clinic, health class and computer lesson. You can donate directly, or buy our charity-sale items.',tabDon:'Donate',tabShop:'Charity sale',donH:'Donations and thank-you gifts',donP:'Every donation receives a certificate, and larger gifts also come with ShiNepal original products and a blessing card from children in Nepal.',donTh1:'Donation',donTh2:'Certificate',donTh3:'ShiNepal products',donTh4:'Blessing card and small item',tagOk:'Confirmed',tagDraft:'Draft',dt0_1:'E-certificate of thanks',dt0_2:'—',dt0_3:'Postcard illustrated by children in Nepal, with a blessing in Nepali',dt1_1:'Printed certificate of thanks',dt1_2:'—',dt1_3:'Blessing postcard, plus a pad of sticky notes',dt2_1:'Printed certificate',dt2_2:'One main item, your pick of: thick canvas tote, ShiNepal team shirt, small felt wool craft',dt2_3:'One small item, your pick of: blessing postcard or sticky notes',dt3_1:'Framed printed certificate',dt3_2:'Two main items, any mix of the three above',dt3_3:'One blessing postcard and one pad of sticky notes',dt4_1:'Framed certificate, plus a listing under “Special thanks” on this site',dt4_2:'Two main items, any mix of the three above',dt4_3:'One blessing postcard and one pad of sticky notes',donNote1:'Tiers marked “Draft” are still to be confirmed by the team, and amounts and gifts may change.',donNote2:'Physical gifts ship to Taiwan main island only. Donors overseas receive an e-certificate.',donBuy:'Donations open soon',donBuyNote:'Online donations are still being prepared and will open once the collecting organization is confirmed.',pdV5:'S–2XL',pdV6:'Polyester',pdV7:'Machine/hand washable',pdV8:'50 pcs',thanksP:'Special thanks to <mark class="hl">ASUS</mark> for their support and sponsorship, and thank you to <mark class="hl">SIMBALION</mark>, the <mark class="hl">Youth Development Administration</mark>, the <mark class="hl">Taiwan Urbani Foundation</mark> and <mark class="hl">National Defense Medical University</mark>. We could not have come this far without you.',thxMsg:'Every clinic, every health class and every smile has a little of you in it.',thxC1:'<mark class="hl">Walking with Nepal</mark>, <mark class="hl">together all the way</mark>',thxC2:'<mark class="hl">Nepal</mark> is better with you',pdN:'ShiNepal dry-fit T-shirt',pdTag:'Team original · charity sale',pdPrice:'NT$ 400',pdTabF:'Front',pdTabB:'Back',pdTab3:'3D view',pdHint3:'Drag to rotate, or turn on auto-rotate',pdAuto:'Auto-rotate',pdNote3d:'The 3D view is generated live from the front and back photos. It is a preview, and the real shirt may fit differently.',pdSpecH:'Product details',pdK1:'Name',pdV1:'ShiNepal dry-fit T-shirt',pdK2:'Color',pdV2:'Gray',pdK3:'Front print',pdV3:'ShiNepal tiger-eyes graphic in black, orange and white, with mandala accents',pdK4:'Back print',pdV4:'“享尼” set vertically, NEPAL x TAIWAN, and a hand-drawn flower with “Shine in Nepal” near the hem',pdK5:'Sizes',pdK6:'Fabric',pdK7:'Care',pdK8:'Stock',pdK9:'Shipping',pdV9:'Taiwan main island only. Shipping fee is extra (amount to be decided).',pdTbd:'To be confirmed',pdBuy:'Coming soon',pdBuyNote:'Online ordering is still being prepared. For browsing only.',pdAlt1:'ShiNepal dry-fit T-shirt, front, cut out',pdAlt2:'ShiNepal dry-fit T-shirt, back, cut out',tn_asus:'ASUS',tn_simba:'SIMBALION',tn_yda:'Youth Development Administration, Ministry of Education',tn_urbani:'Taiwan Urbani Foundation',tn_ndmu:'National Defense Medical University',supNav:'Support us',thxNav:'Special thanks',supH:'Support us',supNote:'Prices are in New Taiwan Dollars (NT$). Online ordering and shipping are still being prepared, so this list is for browsing only.',thxH:'Special thanks',thxP:'Thank you to the organizations and partners who stand with us.',spn_asus:'ASUS',spn_simba:'SIMBALION',spn_yda:'Youth Development Administration, Ministry of Education',spn_urbani:'Taiwan Urbani Foundation',spn_ndmc:'National Defense Medical University',sc_apparel:'Apparel',si_apparel0:'ShiNepal dry-fit T-shirt',si_apparel1:'ShiNepal cotton T-shirt',sc_bags:'Bags',si_bags0:'Canvas tote',sv_bags0_0:'Thin',sv_bags0_1:'Thick',si_bags1:'Crossbody bag',si_bags2:'Square bag',sv_bags2_0:'S',sv_bags2_1:'L',si_bags3:'Pencil case',si_bags4:'Makeup pouch',si_bags5:'Travel makeup pouch',si_bags6:'Coin purse',sc_craft:'Handmade & decor',si_craft0:'Felt wool craft',sv_craft0_0:'S',sv_craft0_1:'M',si_craft1:'Singing bowl',sv_craft1_0:'S',sv_craft1_1:'L',si_craft2:'Knife',sv_craft2_0:'S',sv_craft2_1:'L',sc_acc:'Accessories',si_acc0:'Silk scarf',si_acc1:'Scarf',si_acc2:'Eye mask',sc_stat:'Stationery & small items',si_stat0:'Postcard',si_stat1:'Sticky notes',si_stat2:'File folder',si_stat3:'Landscape print',si_stat4:'Lip balm',
       eyebrow:'National Defense Medical University Nepal Volunteer Group',h1:'Meeting Nepal',lead:'We travel to Nepal to teach health education and computer classes in schools, and to run a free clinic. This page walks through what we did this time.',
       stat1:'course topics',stat2:'clinic departments',stat3:'scabies diagnosis rate at Lotus Primary School',
@@ -1335,7 +1425,7 @@ h1.fancy .ch:hover{animation:chJump .45s ease}
       futureH:'Looking ahead',futureP:'Tap a card to see the two things we want to do next.',n1t:'Improve the online case-record system',n1d:'Track medicine use precisely',n2t:'Work with local hospitals',n2d:'Strengthen follow-up and referrals after the clinic',
       goalsH:'Sustainable Development Goals',goalsP:'Our work connects to these five UN Sustainable Development Goals.',
       thanksH:'Thank you for getting to know us',
-      footA:'National Defense Medical University Nepal Volunteer Group',footB:'Content adapted from the team results deck "尼14成發影片". Photos are from the team\'s activity records.',navPhotos:'More photos',navMore:'More',navPhotos2:'ShiNepal 13 & 14 service photos',navHist:'Past news',histH:'Past news',histP:'News older than a week and events that have ended are kept here.',histEmpty:'No past news yet.',nwEmpty:'No new updates right now. ',nwEmptyGo:'See past news →',back:'← Back to home',photosH:'More photos from the trip',photosP:'Activity photos that are not part of a topic above. Tap a photo to enlarge it.',rtTw:'Taiwan',rtNp:'Nepal',rtTh:'Thailand (layover)',mapCap:'Flight route: from Taiwan, a layover in Thailand, then on to Nepal. A zoomed-in sketch; positions are approximate.'}
+      footA:'National Defense Medical University Nepal Volunteer Group',footB:'Content adapted from the team results deck "尼14成發影片". Photos are from the team\'s activity records.',navPhotos:'More photos',navMore:'More',navPhotos2:'ShiNepal 13 & 14 service photos',navHist:'Past news',navBoard:'Message board',boardH:'Message board',boardP:'Anything to say to ShiNepal? Cheers, questions or stories are all welcome!',bdName:'Nickname (optional)',bdMsg:'Your message',bdSend:'Post message',bdNote:'Messages appear publicly here. Please do not include phone numbers, addresses or other personal details.',bdSoon:'The message board is opening soon!',histH:'Past news',histP:'News older than a week and events that have ended are kept here.',histEmpty:'No past news yet.',nwEmpty:'No new updates right now. ',nwEmptyGo:'See past news →',back:'← Back to home',photosH:'More photos from the trip',photosP:'Activity photos that are not part of a topic above. Tap a photo to enlarge it.',rtTw:'Taiwan',rtNp:'Nepal',rtTh:'Thailand (layover)',mapCap:'Flight route: from Taiwan, a layover in Thailand, then on to Nepal. A zoomed-in sketch; positions are approximate.'}
   };
 
   var L='zh', topicIdx=0, compIdx=0, yearIdx=1, nextIdx=-1;
@@ -1690,18 +1780,18 @@ h1.fancy .ch:hover{animation:chJump .45s ease}
 
 
   function route(){
-    var h=location.hash, isP=(h==='#photos'), isH=(h==='#history');
-    $('#top').hidden=isP||isH; $('#photosMain').hidden=!isP; $('#historyMain').hidden=!isH;
-    var pl=document.getElementById('navMore'); if(pl){ if(isP||isH){pl.setAttribute('aria-current','true');}else{pl.removeAttribute('aria-current');} }
+    var h=location.hash, isP=(h==='#photos'), isH=(h==='#history'), isB=(h==='#board');
+    $('#top').hidden=isP||isH||isB; $('#photosMain').hidden=!isP; $('#historyMain').hidden=!isH; $('#boardMain').hidden=!isB;
+    var pl=document.getElementById('navMore'); if(pl){ if(isP||isH||isB){pl.setAttribute('aria-current','true');}else{pl.removeAttribute('aria-current');} }
     document.querySelectorAll('#navMenu a').forEach(function(a){if(a.getAttribute('href')===h){a.setAttribute('aria-current','page');}else{a.removeAttribute('aria-current');}});
-    if(isP||isH){window.scrollTo(0,0);}
+    if(isP||isH||isB){window.scrollTo(0,0);if(isB&&window.loadBoard)loadBoard();}
     else if(h.length>1){var el=document.getElementById(h.slice(1)); if(el){requestAnimationFrame(function(){el.scrollIntoView();});}}
   }
   window.addEventListener('hashchange',route);
   route();
 
   // scroll spy
-  var links={}; document.querySelectorAll('#nav a').forEach(function(a){if(a.getAttribute('href')!=='#photos'&&a.getAttribute('href')!=='#history'){links[a.getAttribute('href').slice(1)]=a;}});
+  var links={}; document.querySelectorAll('#nav a').forEach(function(a){if(a.getAttribute('href')!=='#photos'&&a.getAttribute('href')!=='#history'&&a.getAttribute('href')!=='#board'){links[a.getAttribute('href').slice(1)]=a;}});
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){
       es.forEach(function(e){
