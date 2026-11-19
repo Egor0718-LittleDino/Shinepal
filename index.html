@@ -378,6 +378,72 @@ h3{font-size:20px;font-weight:700;line-height:1.4}
 .bdhead b{font-weight:900}
 .bdhead time{font-size:12px;color:var(--ink-2)}
 .bdcard p{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+/* ===== 義賣系統 ===== */
+.shbadges{display:flex;flex-wrap:wrap;gap:3px;margin-top:2px;flex-basis:100%;padding-left:var(--shpad,44px)}
+.sitem .sn{flex-wrap:wrap;min-width:7.5em}
+.shbadge{display:inline-block;white-space:nowrap;padding:1px 7px;border-radius:999px;font-size:11px;font-weight:900;background:#2B2420;color:#FFF9EC;vertical-align:middle}
+.sv.soldout b,.sv.offline b{text-decoration:line-through;opacity:.55}
+.shbadge.x{background:#B3261E}
+.sitem-off .ic{filter:grayscale(1);opacity:.55}
+.pdbuy.on{background:var(--red);color:var(--btn-ink);cursor:pointer;box-shadow:0 3px 0 rgba(43,36,32,.35)}
+.pdbuy.on:hover{filter:brightness(1.06)}
+.cdact .cdgo{background:var(--red);color:var(--btn-ink);border-color:var(--red)}
+.shtoast{position:fixed;left:50%;bottom:24px;z-index:200;transform:translate(-50%,20px);opacity:0;pointer-events:none;padding:10px 18px;border-radius:999px;background:#2B2420;color:#FFF9EC;font-weight:700;transition:.25s;max-width:calc(100vw - 32px);text-align:center}
+.shtoast.on{opacity:1;transform:translate(-50%,0)}
+.codlg{width:min(940px,calc(100vw - 24px));max-height:calc(100dvh - 24px);padding:0;border:2px solid var(--ink);border-radius:20px;background:var(--paper);color:var(--ink)}
+.codlg::backdrop{background:rgba(30,20,12,.55)}
+.coform{padding:18px 20px 20px;display:grid;gap:12px}
+.cohead{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.cohead h2{margin:0;font-size:22px;font-weight:900}
+.cox{border:0;background:none;font-size:20px;font-weight:900;cursor:pointer;color:var(--ink);padding:4px 8px}
+.cogrid{display:grid;grid-template-columns:1.15fr 1fr;gap:18px}
+@media (max-width:760px){.cogrid{grid-template-columns:1fr}}
+.cocol h3{margin:0 0 8px;font-size:16px;font-weight:900}
+.cof{display:grid;gap:3px;margin-bottom:10px;font-weight:700;font-size:14px}
+.cof input,.cof textarea{font:inherit;font-weight:500;padding:9px 11px;border-radius:10px;border:2px solid var(--line);background:var(--wall);color:var(--ink);resize:vertical}
+.cof input:focus,.cof textarea:focus{outline:none;border-color:var(--red)}
+.cof small{font-weight:500;color:var(--ink-2);font-size:12px}
+.corow{max-width:200px}
+.cosum{background:var(--wall);border-radius:14px;padding:12px 14px;align-self:start}
+.colines{list-style:none;margin:0 0 8px;padding:0;display:grid;gap:6px}
+.colines li{display:flex;justify-content:space-between;gap:10px;font-size:14px}
+.cowarn{display:block;font-style:normal;color:#B3261E;font-weight:900;font-size:12px}
+.cototal{display:grid;grid-template-columns:1fr auto;gap:2px 10px;margin:8px 0;padding-top:8px;border-top:2px dashed var(--line);font-size:14px}
+.cototal dd{margin:0;text-align:right}
+.cototal .cot{font-weight:900;font-size:17px;margin-top:4px}
+.cotier,.copay{margin:8px 0 0;font-size:13px;line-height:1.55;font-weight:700}
+.cotier small{font-weight:500;color:var(--ink-2)}
+.coagree{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.5}
+.coagree input{margin-top:3px;width:18px;height:18px;flex:none}
+.coerr{margin:0;color:#B3261E;font-weight:900;min-height:1.2em}
+.coact{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}
+.cobtn,.cobtn2{font:inherit;font-weight:900;padding:10px 18px;border-radius:999px;cursor:pointer;text-decoration:none;display:inline-block}
+.cobtn{border:0;background:var(--red);color:var(--btn-ink);box-shadow:0 3px 0 rgba(43,36,32,.35)}
+.cobtn:disabled{opacity:.6;cursor:wait}
+.cobtn2{border:2px solid var(--ink);background:none;color:var(--ink)}
+.cono{margin:0;font-size:16px}.cono b{font-size:20px;letter-spacing:.03em}
+.cocopy{margin-left:6px;font:inherit;font-size:12px;font-weight:900;padding:2px 10px;border-radius:999px;border:2px solid var(--ink);background:none;color:var(--ink);cursor:pointer}
+.costeps{margin:0;padding-left:1.3em;line-height:1.6;font-weight:700}
+.cobank{padding:12px 14px;border-radius:14px;background:var(--wall);border:2px dashed var(--line)}
+.cobank dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0}
+.cobank dt{color:var(--ink-2);font-weight:700}.cobank dd{margin:0;font-weight:700;overflow-wrap:anywhere}
+.coacct{font-size:17px;letter-spacing:.04em}
+.cobank p{margin:0;font-weight:700}
+.olform{margin-bottom:18px}
+.olcard{max-width:640px;padding:16px;border-radius:16px;background:var(--paper);border:2px solid var(--line);display:grid;gap:10px}
+.olhead{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.olhead b{font-size:18px}
+.olst{padding:3px 12px;border-radius:999px;background:var(--yellow);color:#2B2420;font-weight:900;font-size:13px}
+.olst.x{background:#B3261E;color:#FFF}
+.olmeta{margin:0;font-size:13px;color:var(--ink-2)}
+.olflow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:4px;counter-reset:f}
+.olflow li{position:relative;text-align:center;font-size:12px;font-weight:700;color:var(--ink-2);padding-top:22px}
+.olflow li::before{counter-increment:f;content:counter(f);position:absolute;top:0;left:50%;transform:translateX(-50%);width:18px;height:18px;border-radius:50%;background:var(--line);color:var(--ink);font-size:11px;line-height:18px}
+.olflow li.on{color:var(--ink)}.olflow li.on::before{background:var(--red);color:#FFF;content:"✓"}
+.olpay{display:grid;gap:8px}
+.olpay label{display:grid;gap:4px;font-weight:700;font-size:14px}
+.olpay input{font:inherit;padding:9px 11px;border-radius:10px;border:2px solid var(--line);background:var(--wall);color:var(--ink);max-width:180px;letter-spacing:.2em}
+.olpay .evbtn{justify-self:start;margin-top:0;cursor:pointer}
 .bdsky{position:relative;isolation:isolate;z-index:0;max-width:900px;height:360px;margin-bottom:22px;border-radius:22px;overflow:hidden;
   background:radial-gradient(120% 90% at 20% 10%,#FFE9A8 0,transparent 55%),radial-gradient(90% 80% at 90% 90%,#FFC9BC 0,transparent 60%),linear-gradient(160deg,#FFF3D6,#F6DCC4);border:2px solid var(--line)}
 .bdskyt{position:absolute;left:14px;top:10px;z-index:30;font-size:13px;font-weight:900;padding:3px 10px;border-radius:999px;background:rgba(255,249,236,.85);color:#2B2420}
@@ -922,6 +988,7 @@ h1.fancy .ch:hover{animation:chJump .45s ease}
       <a href="#photos" data-i18n="navPhotos2">尼1314服務相片</a>
       <a href="#history" data-i18n="navHist">歷史訊息</a>
       <a href="#board" data-i18n="navBoard">留言板</a>
+      <a href="#order" data-i18n="navOrder">訂單查詢</a>
     </div>
   </div>
 </header>
@@ -1461,6 +1528,21 @@ h1.fancy .ch:hover{animation:chJump .45s ease}
 })();
 </script>
 
+<main id="orderMain" hidden>
+  <div class="wrap">
+    <section id="order">
+      <div class="paper perf">
+        <a class="backlink" href="#hero" data-i18n="back">← 回到首頁</a>
+        <div class="sec-head">
+          <h2 data-i18n="orderH">訂單查詢</h2>
+          <p data-i18n="orderP">輸入訂單編號和下單時填的手機，就能查看訂單進度、匯款資訊，並回報匯款。</p>
+        </div>
+        <div id="orderLookup"></div>
+      </div>
+    </section>
+  </div>
+</main>
+
 <dialog class="lb" id="lb" aria-label="Photo viewer">
   <button type="button" class="x" id="lbX" aria-label="Close">×</button>
   <button type="button" class="pv" id="lbP" aria-label="Previous">‹</button>
@@ -1548,7 +1630,7 @@ h1.fancy .ch:hover{animation:chJump .45s ease}
   var goalsOpen={};
   var NPINFO={zh:{"r_gg":"恆河是印度北部的大河，尼泊爾的三條大河（柯西、甘達基、卡納利）出境後都匯入恆河，最後流向孟加拉灣。","r_br":"雅魯藏布江在西藏境內由西向東流過尼泊爾北方，之後轉入印度，改稱布拉馬普特拉河。","m_ev": "聖母峰（Sagarmatha）約 8,849 公尺，世界最高峰，在尼泊爾與中國邊界上。", "m_kc": "干城章嘉峰約 8,586 公尺，世界第三高峰，在尼泊爾最東邊與印度交界。", "m_mk": "馬卡魯峰約 8,485 公尺，世界第五高峰，就在聖母峰東南方。", "m_dh": "道拉吉里峰約 8,167 公尺，在波卡拉西北方，是世界第七高峰。", "m_an": "安納布爾納一峰約 8,091 公尺，就在波卡拉北方，從波卡拉看得到整排安納布爾納山群。", "m_ms": "馬納斯魯峰約 8,163 公尺，位在 Gorkha 一帶的北方，是世界第八高峰。", "r_ko": "柯西河（Sapta Koshi）收集東部的許多支流，源頭有一支來自西藏；向南流出尼泊爾後進入印度，匯入恆河。", "r_ga": "甘達基河從北方高山往南流，下游稱納拉亞尼河，流經奇旺一帶；進入印度後稱甘達克河，匯入恆河。", "r_ka": "卡納利河在西部，源頭在西藏一側，是尼泊爾最長的河流；進入印度後稱格格拉河，匯入恆河。"},en:{"r_gg":"The Ganges is a great river of northern India; Nepal’s Koshi, Gandaki and Karnali all join it after leaving Nepal, before it reaches the Bay of Bengal.","r_br":"The Yarlung Tsangpo flows west to east across Tibet north of Nepal, then turns into India as the Brahmaputra.","m_ev": "Everest (Sagarmatha), about 8,849 m, is the highest mountain on Earth, on the Nepal–China border.", "m_kc": "Kangchenjunga, about 8,586 m, is the third highest, on Nepal’s far-eastern border with India.", "m_mk": "Makalu, about 8,485 m, is the fifth highest, just southeast of Everest.", "m_dh": "Dhaulagiri, about 8,167 m, rises northwest of Pokhara and is the seventh highest.", "m_an": "Annapurna I, about 8,091 m, lies north of Pokhara; the whole Annapurna range can be seen from there.", "m_ms": "Manaslu, about 8,163 m, stands north of the Gorkha area and is the eighth highest.", "r_ko": "The Koshi (Sapta Koshi) gathers many eastern tributaries, one rising in Tibet, then flows south into India and joins the Ganges.", "r_ga": "The Gandaki flows south from the high Himalaya; downstream it is the Narayani, passing the Chitwan area, then the Gandak in India, joining the Ganges.", "r_ka": "The Karnali in the west rises on the Tibetan side and is Nepal’s longest river; in India it becomes the Ghaghara and joins the Ganges."}};
   var I18N={
-    zh:{brandSub:'尼泊爾國際志工團',followL:'追蹤我們',navWhat:'我們做什麼',navHealth:'衛教',navComputer:'電腦課程',navClinic:'義診',navImpact:'成效',navSites:'據點',sitesH:'我們去過的地方',sitesP:'尼泊爾的服務據點。點圖釘旁的連結，可在 Google 地圖上查看。',sitesCap:'示意地圖，位置為大略標示，非精確比例。點圖釘、山或河可放大並看說明。',npReset:'回到全圖',gmap:'在 Google 地圖開啟',s_kt:'加德滿都',s_pk:'波卡拉',s_ch:'奇旺',s_gk:'Gorkha（去年）',m_ev:'聖母峰',m_kc:'干城章嘉峰',m_mk:'馬卡魯峰',m_dh:'道拉吉里峰',m_an:'安納布爾納峰',m_ms:'馬納斯魯峰',r_ko:'柯西河',r_ga:'甘達基河',r_ka:'卡納利河',c_cn:'中國（西藏）',c_pl:'青藏高原',c_in:'印度',c_gp:'恆河平原',c_bt:'不丹',r_gg:'恆河',r_br:'雅魯藏布江',rk1:'主流（恆河、雅魯藏布江）',rk2:'尼泊爾三大河（支流）',rk3:'出境後顏色變淡',pv_sd:'遠西省',pv_ka:'卡爾納利省',pv_lu:'盧比尼省',pv_ga:'甘達基省',pv_ba:'巴格馬蒂省',pv_ma:'馬德西省',pv_ko:'科西省',ct_bi:'比拉德訥格爾',ct_bg:'比爾根傑',ct_jk:'賈納克布爾',ct_bu:'布特沃爾',ct_ng:'尼泊爾貢傑',ct_dh:'丹加迪',ct_su:'薩爾凱特',ct_cap:'首都圈',lyA:'行政區',lyT:'地形',ak:'色塊＝七個省；虛線圈＝主要城區；雙圈＝首都圈（界線為示意）',lyAria:'地圖圖層',navFuture:'傳承與展望',nw_dx_tag:'活動花絮',nw_dx_t:'享尼1415大迎新',nw_dx_p:'尼12、13、14齊聚一堂一起歡迎尼15的加入，我們吃好吃的肯德基，玩好玩的Kahoot遊戲，也讓團隊之間更熟悉、更有默契。',nw_wx_tag:'活動花絮',nw_wx_t:'享尼1415小迎新',nw_wx_p:'新舊團員齊聚，輪流上台自我介紹，最後一起比出老虎爪合照！',nw_wx_go:'看全部照片',vidNav:'影片',vidH:'享尼影片',vidP:'兩部團隊影片，點播放觀看，按「放大觀看」可放大。',vidT1:'享尼前導影片',vidD1:'尼泊爾的寺廟、經輪與喜馬拉雅群山，帶你認識我們要去的地方。',vidT2:'享尼祝福影片',vidD2:'教室裡的衛教、義診與孩子們的笑容，最後送上「Namaste Taiwan」的祝福。',vidZoom:'放大觀看',vidClose:'關閉',newsH:'最新消息',newsPrev:'上一則',newsNext:'下一則',newsGo:'看詳情',nw_ev_tag:'校慶擺攤',nw_ev_t:'尼好，再來一份套餐！',nw_ev_p:'11/21（六）校慶，享尼攤位開張！炸物套餐配尼泊爾香料奶茶只要 120 元，還有來自尼泊爾的手工小物等你來挖寶。',nw_ev_w:'週六',nw_ev_go:'看攤位海報',nw_sale_tag:'新上線',nw_sale_t:'義賣商品開放瀏覽',nw_sale_p:'享尼排汗短袖T恤等義賣商品的規格與價格已公開，歡迎先逛逛。',nw_don_tag:'新上線',nw_don_t:'捐款回饋方案預覽',nw_don_p:'每筆捐款都有獎狀，依金額附享尼原創產品與孩童祝福卡片。（部分級距為草案）',evTag:'校慶擺攤',evDate:'11/21',evDow:'週六',evT:'11/21 校慶，來享尼攤位吃飽又做公益！',evP:'國防醫學大學校慶當天，享尼志工團在校園擺攤，歡迎大家來找我們：<ul><li>🍟 <b>「尼好，再來一份套餐！」只要 120 元</b>：金黃脆薯條、酥脆起司圈、香酥炸雞塊，再配一杯溫潤的尼泊爾香料奶茶。</li><li>🐑 <b>尼泊爾手工小物</b>：毛茸茸的羊毛氈動物、頌缽、尼泊爾彎刀、木製西洋棋，每一件都帶著尼泊爾的溫度。</li></ul>攤位的每一筆收入，都會用在下一次赴尼泊爾的義診、衛教與電腦課。吃一份套餐、帶走一件小物，就是一起為尼泊爾的孩子出一份力！',supP:'每一份支持，都會成為下一次義診、衛教與電腦課的力量。你可以直接捐款，也可以購買我們的義賣商品。',tabDon:'捐款',tabShop:'義賣',donH:'捐款與回饋',donP:'捐得越多，我們寄出的心意越多。每一筆捐款都會收到獎狀，並依金額附上享尼原創產品與尼泊爾孩童的祝福卡片。',donTh1:'捐款金額',donTh2:'獎狀',donTh3:'享尼原創產品',donTh4:'祝福卡片與小物',tagOk:'已確認',tagDraft:'草案',dt0_1:'電子感謝狀',dt0_2:'—',dt0_3:'尼泊爾孩童插畫明信片（附尼泊爾語祝福）',dt1_1:'紙本感謝狀',dt1_2:'—',dt1_3:'祝福明信片，另加便利貼一份',dt2_1:'紙本獎狀',dt2_2:'主商品一件，三選一：厚帆布袋、享尼團服、小羊毛氈',dt2_3:'小物一件，二選一：祝福明信片或便利貼',dt3_1:'紙本獎狀（加框）',dt3_2:'主商品兩件，從上述三項自由搭配',dt3_3:'祝福明信片與便利貼各一份',dt4_1:'裱框感謝狀，並於網站「特別感謝」列名',dt4_2:'主商品兩件，從上述三項自由搭配',dt4_3:'祝福明信片與便利貼各一份',donNote1:'標示「草案」的級距仍待團隊確認，金額與贈品可能調整。',donNote2:'實體贈品僅寄送台灣本島；海外捐款者提供電子感謝狀。',donBuy:'即將開放捐款',donBuyNote:'線上捐款尚在籌備中，收款單位確認後開放。',pdV5:'S–2XL',pdV6:'聚酯纖維',pdV7:'可水洗',pdV8:'50 件',thanksP:'特別感謝<mark class="hl">華碩</mark>的支持與贊助，也謝謝<mark class="hl">雄獅文具</mark>、<mark class="hl">教育部青年發展署</mark>、<mark class="hl">歐巴尼紀念基金會</mark>與<mark class="hl">國防醫學大學</mark>。有你們，我們才走得到這麼遠。',thxMsg:'每一次義診、每一堂衛教、每一個孩子的笑容，都有你的一份力量。',thxC1:'<mark class="hl">與尼同行</mark>，一路<mark class="hl">同心</mark>',thxC2:'<mark class="hl">有尼</mark>真好',pdN:'享尼排汗短袖T恤',pdTag:'團隊原創・義賣商品',pdPrice:'NT$ 400',pdTabF:'正面',pdTabB:'背面',pdTab3:'3D 立體',pdHint3:'拖曳旋轉，也可以開啟自動旋轉',pdAuto:'自動旋轉',pdNote3d:'立體效果由正反面照片即時生成，為示意預覽，實際版型以實品為準。',pdSpecH:'商品規格',pdK1:'品名',pdV1:'享尼排汗短袖T恤',pdK2:'顏色',pdV2:'灰色',pdK3:'前胸圖樣',pdV3:'shiNepal 虎眼圖樣（黑橘白配色，曼陀羅花紋點綴）',pdK4:'後背圖樣',pdV4:'「享尼」直書、NEPAL x TAIWAN，下襬手繪花朵與「Shine in Nepal」',pdK5:'尺寸',pdK6:'材質',pdK7:'洗滌方式',pdK8:'庫存',pdK9:'運送',pdV9:'僅寄送台灣本島，運費另計（金額待定）',pdTbd:'待團隊確認',pdBuy:'即將開放購買',pdBuyNote:'線上購買尚在籌備中，目前僅供瀏覽。',pdAlt1:'享尼排汗短袖T恤正面，去背圖',pdAlt2:'享尼排汗短袖T恤背面，去背圖',tn_asus:'華碩電腦',tn_simba:'雄獅文具',tn_yda:'教育部青年發展署',tn_urbani:'財團法人歐巴尼紀念基金會',tn_ndmu:'國防醫學大學',supNav:'支持我們',thxNav:'特別感謝',supH:'支持我們',supNote:'價格單位為新台幣（NT$）。線上購買與寄送功能尚在籌備中，目前僅供瀏覽。',thxH:'特別感謝',thxP:'感謝一路支持我們的單位與夥伴。',spn_asus:'華碩電腦',spn_simba:'雄獅文具',spn_yda:'教育部青年發展署',spn_urbani:'財團法人歐巴尼紀念基金會',spn_ndmc:'國防醫學大學',sc_apparel:'服飾',si_apparel0:'享尼排汗短袖T恤',si_apparel1:'享尼棉質短袖T恤',sc_bags:'包袋',si_bags0:'帆布袋',sv_bags0_0:'薄',sv_bags0_1:'厚',si_bags1:'側背包',si_bags2:'方形包',sv_bags2_0:'小',sv_bags2_1:'大',si_bags3:'筆袋',si_bags4:'化妝包',si_bags5:'旅行化妝包',si_bags6:'零錢包',sc_craft:'手作與擺飾',si_craft0:'羊毛氈',sv_craft0_0:'小',sv_craft0_1:'中',si_craft1:'頌缽',sv_craft1_0:'小',sv_craft1_1:'大',si_craft2:'刀',sv_craft2_0:'小',sv_craft2_1:'大',sc_acc:'配件',si_acc0:'絲巾',si_acc1:'圍巾',si_acc2:'眼罩',sc_stat:'文具與小物',si_stat0:'明信片',si_stat1:'便利貼',si_stat2:'資料夾',si_stat3:'風景圖',si_stat4:'護唇膏',
+    zh:{brandSub:'尼泊爾國際志工團',followL:'追蹤我們',navWhat:'我們做什麼',navHealth:'衛教',navComputer:'電腦課程',navClinic:'義診',navImpact:'成效',navSites:'據點',sitesH:'我們去過的地方',sitesP:'尼泊爾的服務據點。點圖釘旁的連結，可在 Google 地圖上查看。',sitesCap:'示意地圖，位置為大略標示，非精確比例。點圖釘、山或河可放大並看說明。',npReset:'回到全圖',gmap:'在 Google 地圖開啟',s_kt:'加德滿都',s_pk:'波卡拉',s_ch:'奇旺',s_gk:'Gorkha（去年）',m_ev:'聖母峰',m_kc:'干城章嘉峰',m_mk:'馬卡魯峰',m_dh:'道拉吉里峰',m_an:'安納布爾納峰',m_ms:'馬納斯魯峰',r_ko:'柯西河',r_ga:'甘達基河',r_ka:'卡納利河',c_cn:'中國（西藏）',c_pl:'青藏高原',c_in:'印度',c_gp:'恆河平原',c_bt:'不丹',r_gg:'恆河',r_br:'雅魯藏布江',rk1:'主流（恆河、雅魯藏布江）',rk2:'尼泊爾三大河（支流）',rk3:'出境後顏色變淡',pv_sd:'遠西省',pv_ka:'卡爾納利省',pv_lu:'盧比尼省',pv_ga:'甘達基省',pv_ba:'巴格馬蒂省',pv_ma:'馬德西省',pv_ko:'科西省',ct_bi:'比拉德訥格爾',ct_bg:'比爾根傑',ct_jk:'賈納克布爾',ct_bu:'布特沃爾',ct_ng:'尼泊爾貢傑',ct_dh:'丹加迪',ct_su:'薩爾凱特',ct_cap:'首都圈',lyA:'行政區',lyT:'地形',ak:'色塊＝七個省；虛線圈＝主要城區；雙圈＝首都圈（界線為示意）',lyAria:'地圖圖層',navFuture:'傳承與展望',nw_dx_tag:'活動花絮',nw_dx_t:'享尼1415大迎新',nw_dx_p:'尼12、13、14齊聚一堂一起歡迎尼15的加入，我們吃好吃的肯德基，玩好玩的Kahoot遊戲，也讓團隊之間更熟悉、更有默契。',nw_wx_tag:'活動花絮',nw_wx_t:'享尼1415小迎新',nw_wx_p:'新舊團員齊聚，輪流上台自我介紹，最後一起比出老虎爪合照！',nw_wx_go:'看全部照片',vidNav:'影片',vidH:'享尼影片',vidP:'兩部團隊影片，點播放觀看，按「放大觀看」可放大。',vidT1:'享尼前導影片',vidD1:'尼泊爾的寺廟、經輪與喜馬拉雅群山，帶你認識我們要去的地方。',vidT2:'享尼祝福影片',vidD2:'教室裡的衛教、義診與孩子們的笑容，最後送上「Namaste Taiwan」的祝福。',vidZoom:'放大觀看',vidClose:'關閉',newsH:'最新消息',newsPrev:'上一則',newsNext:'下一則',newsGo:'看詳情',nw_ev_tag:'校慶擺攤',nw_ev_t:'尼好，再來一份套餐！',nw_ev_p:'11/21（六）校慶，享尼攤位開張！炸物套餐配尼泊爾香料奶茶只要 120 元，還有來自尼泊爾的手工小物等你來挖寶。',nw_ev_w:'週六',nw_ev_go:'看攤位海報',nw_sale_tag:'新上線',nw_sale_t:'義賣商品開放瀏覽',nw_sale_p:'享尼排汗短袖T恤等義賣商品的規格與價格已公開，歡迎先逛逛。',nw_don_tag:'新上線',nw_don_t:'捐款回饋方案預覽',nw_don_p:'每筆捐款都有獎狀，依金額附享尼原創產品與孩童祝福卡片。（部分級距為草案）',evTag:'校慶擺攤',evDate:'11/21',evDow:'週六',evT:'11/21 校慶，來享尼攤位吃飽又做公益！',evP:'國防醫學大學校慶當天，享尼志工團在校園擺攤，歡迎大家來找我們：<ul><li>🍟 <b>「尼好，再來一份套餐！」只要 120 元</b>：金黃脆薯條、酥脆起司圈、香酥炸雞塊，再配一杯溫潤的尼泊爾香料奶茶。</li><li>🐑 <b>尼泊爾手工小物</b>：毛茸茸的羊毛氈動物、頌缽、尼泊爾彎刀、木製西洋棋，每一件都帶著尼泊爾的溫度。</li></ul>攤位的每一筆收入，都會用在下一次赴尼泊爾的義診、衛教與電腦課。吃一份套餐、帶走一件小物，就是一起為尼泊爾的孩子出一份力！',supP:'每一份支持，都會成為下一次義診、衛教與電腦課的力量。你可以直接捐款，也可以購買我們的義賣商品。',tabDon:'捐款',tabShop:'義賣',donH:'捐款與回饋',donP:'捐得越多，我們寄出的心意越多。每一筆捐款都會收到獎狀，並依金額附上享尼原創產品與尼泊爾孩童的祝福卡片。',donTh1:'捐款金額',donTh2:'獎狀',donTh3:'享尼原創產品',donTh4:'祝福卡片與小物',tagOk:'已確認',tagDraft:'草案',dt0_1:'電子感謝狀',dt0_2:'—',dt0_3:'尼泊爾孩童插畫明信片（附尼泊爾語祝福）',dt1_1:'紙本感謝狀',dt1_2:'—',dt1_3:'祝福明信片，另加便利貼一份',dt2_1:'紙本獎狀',dt2_2:'主商品一件，三選一：厚帆布袋、享尼團服、小羊毛氈',dt2_3:'小物一件，二選一：祝福明信片或便利貼',dt3_1:'紙本獎狀（加框）',dt3_2:'主商品兩件，從上述三項自由搭配',dt3_3:'祝福明信片與便利貼各一份',dt4_1:'裱框感謝狀，並於網站「特別感謝」列名',dt4_2:'主商品兩件，從上述三項自由搭配',dt4_3:'祝福明信片與便利貼各一份',donNote1:'標示「草案」的級距仍待團隊確認，金額與贈品可能調整。',donNote2:'實體贈品僅寄送台灣本島；海外捐款者提供電子感謝狀。',donBuy:'即將開放捐款',donBuyNote:'線上捐款尚在籌備中，收款單位確認後開放。',pdV5:'S–2XL',pdV6:'聚酯纖維',pdV7:'可水洗',pdV8:'50 件',thanksP:'特別感謝<mark class="hl">華碩</mark>的支持與贊助，也謝謝<mark class="hl">雄獅文具</mark>、<mark class="hl">教育部青年發展署</mark>、<mark class="hl">歐巴尼紀念基金會</mark>與<mark class="hl">國防醫學大學</mark>。有你們，我們才走得到這麼遠。',thxMsg:'每一次義診、每一堂衛教、每一個孩子的笑容，都有你的一份力量。',thxC1:'<mark class="hl">與尼同行</mark>，一路<mark class="hl">同心</mark>',thxC2:'<mark class="hl">有尼</mark>真好',pdN:'享尼排汗短袖T恤',pdTag:'團隊原創・義賣商品',pdPrice:'NT$ 400',pdTabF:'正面',pdTabB:'背面',pdTab3:'3D 立體',pdHint3:'拖曳旋轉，也可以開啟自動旋轉',pdAuto:'自動旋轉',pdNote3d:'立體效果由正反面照片即時生成，為示意預覽，實際版型以實品為準。',pdSpecH:'商品規格',pdK1:'品名',pdV1:'享尼排汗短袖T恤',pdK2:'顏色',pdV2:'灰色',pdK3:'前胸圖樣',pdV3:'shiNepal 虎眼圖樣（黑橘白配色，曼陀羅花紋點綴）',pdK4:'後背圖樣',pdV4:'「享尼」直書、NEPAL x TAIWAN，下襬手繪花朵與「Shine in Nepal」',pdK5:'尺寸',pdK6:'材質',pdK7:'洗滌方式',pdK8:'庫存',pdK9:'運送',pdV9:'僅寄送台灣本島，運費另計（金額待定）',pdTbd:'待團隊確認',pdBuy:'即將開放購買',pdBuyNote:'線上購買尚在籌備中，目前僅供瀏覽。',pdAlt1:'享尼排汗短袖T恤正面，去背圖',pdAlt2:'享尼排汗短袖T恤背面，去背圖',tn_asus:'華碩電腦',tn_simba:'雄獅文具',tn_yda:'教育部青年發展署',tn_urbani:'財團法人歐巴尼紀念基金會',tn_ndmu:'國防醫學大學',supNav:'支持我們',thxNav:'特別感謝',supH:'支持我們',supNote:'價格單位為新台幣（NT$）。點商品圖示即可加入購物車，線上下單後以銀行轉帳付款，僅寄送台灣本島。',thxH:'特別感謝',thxP:'感謝一路支持我們的單位與夥伴。',spn_asus:'華碩電腦',spn_simba:'雄獅文具',spn_yda:'教育部青年發展署',spn_urbani:'財團法人歐巴尼紀念基金會',spn_ndmc:'國防醫學大學',sc_apparel:'服飾',si_apparel0:'享尼排汗短袖T恤',si_apparel1:'享尼棉質短袖T恤',sc_bags:'包袋',si_bags0:'帆布袋',sv_bags0_0:'薄',sv_bags0_1:'厚',si_bags1:'側背包',si_bags2:'方形包',sv_bags2_0:'小',sv_bags2_1:'大',si_bags3:'筆袋',si_bags4:'化妝包',si_bags5:'旅行化妝包',si_bags6:'零錢包',sc_craft:'手作與擺飾',si_craft0:'羊毛氈',sv_craft0_0:'小',sv_craft0_1:'中',si_craft1:'頌缽',sv_craft1_0:'小',sv_craft1_1:'大',si_craft2:'刀',sv_craft2_0:'小',sv_craft2_1:'大',sc_acc:'配件',si_acc0:'絲巾',si_acc1:'圍巾',si_acc2:'眼罩',sc_stat:'文具與小物',si_stat0:'明信片',si_stat1:'便利貼',si_stat2:'資料夾',si_stat3:'風景圖',si_stat4:'護唇膏',
       eyebrow:'國防醫學大學　享尼尼泊爾國際志工團',h1:'與尼相見',lead:'我們前往尼泊爾，在學校教衛教與電腦，也在當地辦義診。這裡整理我們這次在尼泊爾做的事。',
       stat1:'項課程主題',stat2:'個義診科別',stat3:'蓮花小學疥瘡確診比例',
       whatH:'我們做什麼',whatP:'三件事：衛教、電腦課程、義診。每一項為什麼重要，這裡一起說明。',rootT:'享尼尼泊爾志工團',rootS:'國防醫學大學',whyL:'為什麼重要',w1:'孩子學會洗手、刷牙、防頭蝨與基本急救，就能先預防疾病。知識留在孩子身上，比一次性的治療走得更遠。',w2:'電腦是接觸資訊、認識世界的入口。課程結束後，資源留在當地，孩子之後還能繼續學。',w3:'讓平常不容易就醫的人也能接受檢查與用藥，並累積病例，作為後續追蹤與轉介的基礎。',
@@ -1563,8 +1645,8 @@ h1.fancy .ch:hover{animation:chJump .45s ease}
       futureH:'傳承與展望',futureP:'點選卡片，看我們接下來想做的兩件事。',n1t:'完善線上病例系統',n1d:'精準掌握用藥量',n2t:'和當地醫院合作',n2d:'強化義診後續追蹤與轉介',
       goalsH:'永續發展目標',goalsP:'我們的工作對應這五項聯合國永續發展目標。',
       thanksH:'謝謝你認識我們',
-      footA:'國防醫學大學享尼尼泊爾國際志工團',footB:'內容整理自團隊成果簡報「尼14成發影片」。照片為團隊活動紀錄。',navPhotos:'其他活動相片',navMore:'其他',navPhotos2:'尼1314服務相片',navHist:'歷史訊息',navBoard:'留言板',boardH:'留言板',boardP:'想對享尼說些什麼？加油打氣、提問或分享，都歡迎留下來！',bdName:'暱稱（可不填）',bdMsg:'留言內容',bdSend:'送出留言',bdNote:'留言送出後會公開顯示在這裡，請勿留下電話、地址等個人資料。',bdSoon:'留言板即將開放，敬請期待！',bdSkyT:'✨ 最近七天的留言',bdSkyE:'這週還沒有新留言，來留下第一則吧！',histH:'歷史訊息',histP:'發布超過一週的消息，以及已經結束的活動，都收在這裡。',histEmpty:'目前還沒有歷史訊息。',nwEmpty:'目前沒有新消息，',nwEmptyGo:'看看歷史訊息 →',back:'← 回到首頁',photosH:'其他活動相片',photosP:'這裡收錄還沒放進各主題的活動紀錄。點照片可以放大。',rtTw:'台灣',rtNp:'尼泊爾',rtTh:'泰國轉機',mapCap:'飛行路線：從台灣出發，先在泰國轉機，再飛到尼泊爾。局部放大示意，位置為概略。'},
-    en:{brandSub:'Nepal Volunteer Group',followL:'Follow us',navWhat:'What we do',navHealth:'Health education',navComputer:'Computer classes',navClinic:'Free clinic',navImpact:'Results',navSites:'Sites',sitesH:'Where we went',sitesP:'Our service sites in Nepal. Use the links to open each place in Google Maps.',sitesCap:'Sketch map; locations are approximate and not to scale. Tap a pin, mountain or river to zoom in.',npReset:'Back to full map',gmap:'Open in Google Maps',s_kt:'Kathmandu',s_pk:'Pokhara',s_ch:'Chitwan',s_gk:'Gorkha (last year)',m_ev:'Mt. Everest',m_kc:'Kangchenjunga',m_mk:'Makalu',m_dh:'Dhaulagiri',m_an:'Annapurna I',m_ms:'Manaslu',r_ko:'Koshi River',r_ga:'Gandaki River',r_ka:'Karnali River',c_cn:'China (Tibet)',c_pl:'Tibetan Plateau',c_in:'India',c_gp:'Gangetic Plain',c_bt:'Bhutan',r_gg:'Ganges',r_br:'Yarlung Tsangpo',rk1:'Main rivers (Ganges, Yarlung Tsangpo)',rk2:'Nepal’s three big rivers (tributaries)',rk3:'Fainter once outside Nepal',pv_sd:'Sudurpashchim',pv_ka:'Karnali',pv_lu:'Lumbini',pv_ga:'Gandaki',pv_ba:'Bagmati',pv_ma:'Madhesh',pv_ko:'Koshi',ct_bi:'Biratnagar',ct_bg:'Birgunj',ct_jk:'Janakpur',ct_bu:'Butwal',ct_ng:'Nepalgunj',ct_dh:'Dhangadhi',ct_su:'Surkhet',ct_cap:'Capital',lyA:'Provinces',lyT:'Terrain',ak:'Colors = 7 provinces; dashed rings = main cities; solid ring = capital (boundaries are approximate)',lyAria:'Map layers',navFuture:'Looking ahead',nw_dx_tag:'Photos',nw_dx_t:'ShiNepal 14 & 15 big welcome party',nw_dx_p:'ShiNepal 12, 13 and 14 came together to welcome ShiNepal 15. We shared KFC, played Kahoot, and got to know each other better as a team.',nw_wx_tag:'Photos',nw_wx_t:'ShiNepal 14 & 15 welcome party',nw_wx_p:'New and returning members met up, took turns introducing themselves, and ended with a tiger-claw group photo!',nw_wx_go:'See all photos',vidNav:'Videos',vidH:'ShiNepal videos',vidP:'Two team videos. Press play to watch, or “Watch larger” to enlarge.',vidT1:'ShiNepal teaser',vidD1:'Temples, prayer wheels and the Himalaya: a first look at where we go.',vidT2:'Blessings from Nepal',vidD2:'Health lessons, the clinic and the children’s smiles, ending with a “Namaste Taiwan” from the kids.',vidZoom:'Watch larger',vidClose:'Close',newsH:'Latest news',newsPrev:'Previous',newsNext:'Next',newsGo:'See more',nw_ev_tag:'Campus booth',nw_ev_t:'Namaste, one more combo!',nw_ev_p:'Sat 11/21, campus anniversary: the ShiNepal booth is open! A fried-snack combo with Nepali spiced milk tea for just NT$120, plus handmade goods from Nepal.',nw_ev_w:'Sat',nw_ev_go:'See the booth posters',nw_sale_tag:'New',nw_sale_t:'Charity-sale items are online',nw_sale_p:'See the details and prices of the ShiNepal dry-fit T-shirt and our other charity-sale items.',nw_don_tag:'New',nw_don_t:'Donation gifts preview',nw_don_p:'Every donation gets a certificate, with ShiNepal products and a children’s blessing card by amount. (Some tiers are drafts.)',evTag:'Campus event',evDate:'11/21',evDow:'Sat',evT:'11/21 campus anniversary: eat well and do good at the ShiNepal booth!',evP:'On the National Defense Medical University anniversary, the ShiNepal volunteer group has a booth on campus. Come find us:<ul><li>🍟 <b>“Namaste, one more combo!” for just NT$120</b>: golden fries, crispy cheese rings and fried chicken bites, with a warm cup of Nepali spiced milk tea.</li><li>🐑 <b>Handmade goods from Nepal</b>: fuzzy felt animals, singing bowls, khukuri knives and wooden chess sets.</li></ul>Every dollar from the booth goes to our next trip to Nepal: the free clinic, health lessons and computer classes. Grab a combo, take home a keepsake, and help the children of Nepal!',supP:'Every bit of support powers our next clinic, health class and computer lesson. You can donate directly, or buy our charity-sale items.',tabDon:'Donate',tabShop:'Charity sale',donH:'Donations and thank-you gifts',donP:'Every donation receives a certificate, and larger gifts also come with ShiNepal original products and a blessing card from children in Nepal.',donTh1:'Donation',donTh2:'Certificate',donTh3:'ShiNepal products',donTh4:'Blessing card and small item',tagOk:'Confirmed',tagDraft:'Draft',dt0_1:'E-certificate of thanks',dt0_2:'—',dt0_3:'Postcard illustrated by children in Nepal, with a blessing in Nepali',dt1_1:'Printed certificate of thanks',dt1_2:'—',dt1_3:'Blessing postcard, plus a pad of sticky notes',dt2_1:'Printed certificate',dt2_2:'One main item, your pick of: thick canvas tote, ShiNepal team shirt, small felt wool craft',dt2_3:'One small item, your pick of: blessing postcard or sticky notes',dt3_1:'Framed printed certificate',dt3_2:'Two main items, any mix of the three above',dt3_3:'One blessing postcard and one pad of sticky notes',dt4_1:'Framed certificate, plus a listing under “Special thanks” on this site',dt4_2:'Two main items, any mix of the three above',dt4_3:'One blessing postcard and one pad of sticky notes',donNote1:'Tiers marked “Draft” are still to be confirmed by the team, and amounts and gifts may change.',donNote2:'Physical gifts ship to Taiwan main island only. Donors overseas receive an e-certificate.',donBuy:'Donations open soon',donBuyNote:'Online donations are still being prepared and will open once the collecting organization is confirmed.',pdV5:'S–2XL',pdV6:'Polyester',pdV7:'Machine/hand washable',pdV8:'50 pcs',thanksP:'Special thanks to <mark class="hl">ASUS</mark> for their support and sponsorship, and thank you to <mark class="hl">SIMBALION</mark>, the <mark class="hl">Youth Development Administration</mark>, the <mark class="hl">Taiwan Urbani Foundation</mark> and <mark class="hl">National Defense Medical University</mark>. We could not have come this far without you.',thxMsg:'Every clinic, every health class and every smile has a little of you in it.',thxC1:'<mark class="hl">Walking with Nepal</mark>, <mark class="hl">together all the way</mark>',thxC2:'<mark class="hl">Nepal</mark> is better with you',pdN:'ShiNepal dry-fit T-shirt',pdTag:'Team original · charity sale',pdPrice:'NT$ 400',pdTabF:'Front',pdTabB:'Back',pdTab3:'3D view',pdHint3:'Drag to rotate, or turn on auto-rotate',pdAuto:'Auto-rotate',pdNote3d:'The 3D view is generated live from the front and back photos. It is a preview, and the real shirt may fit differently.',pdSpecH:'Product details',pdK1:'Name',pdV1:'ShiNepal dry-fit T-shirt',pdK2:'Color',pdV2:'Gray',pdK3:'Front print',pdV3:'ShiNepal tiger-eyes graphic in black, orange and white, with mandala accents',pdK4:'Back print',pdV4:'“享尼” set vertically, NEPAL x TAIWAN, and a hand-drawn flower with “Shine in Nepal” near the hem',pdK5:'Sizes',pdK6:'Fabric',pdK7:'Care',pdK8:'Stock',pdK9:'Shipping',pdV9:'Taiwan main island only. Shipping fee is extra (amount to be decided).',pdTbd:'To be confirmed',pdBuy:'Coming soon',pdBuyNote:'Online ordering is still being prepared. For browsing only.',pdAlt1:'ShiNepal dry-fit T-shirt, front, cut out',pdAlt2:'ShiNepal dry-fit T-shirt, back, cut out',tn_asus:'ASUS',tn_simba:'SIMBALION',tn_yda:'Youth Development Administration, Ministry of Education',tn_urbani:'Taiwan Urbani Foundation',tn_ndmu:'National Defense Medical University',supNav:'Support us',thxNav:'Special thanks',supH:'Support us',supNote:'Prices are in New Taiwan Dollars (NT$). Online ordering and shipping are still being prepared, so this list is for browsing only.',thxH:'Special thanks',thxP:'Thank you to the organizations and partners who stand with us.',spn_asus:'ASUS',spn_simba:'SIMBALION',spn_yda:'Youth Development Administration, Ministry of Education',spn_urbani:'Taiwan Urbani Foundation',spn_ndmc:'National Defense Medical University',sc_apparel:'Apparel',si_apparel0:'ShiNepal dry-fit T-shirt',si_apparel1:'ShiNepal cotton T-shirt',sc_bags:'Bags',si_bags0:'Canvas tote',sv_bags0_0:'Thin',sv_bags0_1:'Thick',si_bags1:'Crossbody bag',si_bags2:'Square bag',sv_bags2_0:'S',sv_bags2_1:'L',si_bags3:'Pencil case',si_bags4:'Makeup pouch',si_bags5:'Travel makeup pouch',si_bags6:'Coin purse',sc_craft:'Handmade & decor',si_craft0:'Felt wool craft',sv_craft0_0:'S',sv_craft0_1:'M',si_craft1:'Singing bowl',sv_craft1_0:'S',sv_craft1_1:'L',si_craft2:'Knife',sv_craft2_0:'S',sv_craft2_1:'L',sc_acc:'Accessories',si_acc0:'Silk scarf',si_acc1:'Scarf',si_acc2:'Eye mask',sc_stat:'Stationery & small items',si_stat0:'Postcard',si_stat1:'Sticky notes',si_stat2:'File folder',si_stat3:'Landscape print',si_stat4:'Lip balm',
+      footA:'國防醫學大學享尼尼泊爾國際志工團',footB:'內容整理自團隊成果簡報「尼14成發影片」。照片為團隊活動紀錄。',navPhotos:'其他活動相片',navMore:'其他',navPhotos2:'尼1314服務相片',navHist:'歷史訊息',navBoard:'留言板',navOrder:'訂單查詢',orderH:'訂單查詢',orderP:'輸入訂單編號和下單時填的手機，就能查看訂單進度、匯款資訊，並回報匯款。',boardH:'留言板',boardP:'想對享尼說些什麼？加油打氣、提問或分享，都歡迎留下來！',bdName:'暱稱（可不填）',bdMsg:'留言內容',bdSend:'送出留言',bdNote:'留言送出後會公開顯示在這裡，請勿留下電話、地址等個人資料。',bdSoon:'留言板即將開放，敬請期待！',bdSkyT:'✨ 最近七天的留言',bdSkyE:'這週還沒有新留言，來留下第一則吧！',histH:'歷史訊息',histP:'發布超過一週的消息，以及已經結束的活動，都收在這裡。',histEmpty:'目前還沒有歷史訊息。',nwEmpty:'目前沒有新消息，',nwEmptyGo:'看看歷史訊息 →',back:'← 回到首頁',photosH:'其他活動相片',photosP:'這裡收錄還沒放進各主題的活動紀錄。點照片可以放大。',rtTw:'台灣',rtNp:'尼泊爾',rtTh:'泰國轉機',mapCap:'飛行路線：從台灣出發，先在泰國轉機，再飛到尼泊爾。局部放大示意，位置為概略。'},
+    en:{brandSub:'Nepal Volunteer Group',followL:'Follow us',navWhat:'What we do',navHealth:'Health education',navComputer:'Computer classes',navClinic:'Free clinic',navImpact:'Results',navSites:'Sites',sitesH:'Where we went',sitesP:'Our service sites in Nepal. Use the links to open each place in Google Maps.',sitesCap:'Sketch map; locations are approximate and not to scale. Tap a pin, mountain or river to zoom in.',npReset:'Back to full map',gmap:'Open in Google Maps',s_kt:'Kathmandu',s_pk:'Pokhara',s_ch:'Chitwan',s_gk:'Gorkha (last year)',m_ev:'Mt. Everest',m_kc:'Kangchenjunga',m_mk:'Makalu',m_dh:'Dhaulagiri',m_an:'Annapurna I',m_ms:'Manaslu',r_ko:'Koshi River',r_ga:'Gandaki River',r_ka:'Karnali River',c_cn:'China (Tibet)',c_pl:'Tibetan Plateau',c_in:'India',c_gp:'Gangetic Plain',c_bt:'Bhutan',r_gg:'Ganges',r_br:'Yarlung Tsangpo',rk1:'Main rivers (Ganges, Yarlung Tsangpo)',rk2:'Nepal’s three big rivers (tributaries)',rk3:'Fainter once outside Nepal',pv_sd:'Sudurpashchim',pv_ka:'Karnali',pv_lu:'Lumbini',pv_ga:'Gandaki',pv_ba:'Bagmati',pv_ma:'Madhesh',pv_ko:'Koshi',ct_bi:'Biratnagar',ct_bg:'Birgunj',ct_jk:'Janakpur',ct_bu:'Butwal',ct_ng:'Nepalgunj',ct_dh:'Dhangadhi',ct_su:'Surkhet',ct_cap:'Capital',lyA:'Provinces',lyT:'Terrain',ak:'Colors = 7 provinces; dashed rings = main cities; solid ring = capital (boundaries are approximate)',lyAria:'Map layers',navFuture:'Looking ahead',nw_dx_tag:'Photos',nw_dx_t:'ShiNepal 14 & 15 big welcome party',nw_dx_p:'ShiNepal 12, 13 and 14 came together to welcome ShiNepal 15. We shared KFC, played Kahoot, and got to know each other better as a team.',nw_wx_tag:'Photos',nw_wx_t:'ShiNepal 14 & 15 welcome party',nw_wx_p:'New and returning members met up, took turns introducing themselves, and ended with a tiger-claw group photo!',nw_wx_go:'See all photos',vidNav:'Videos',vidH:'ShiNepal videos',vidP:'Two team videos. Press play to watch, or “Watch larger” to enlarge.',vidT1:'ShiNepal teaser',vidD1:'Temples, prayer wheels and the Himalaya: a first look at where we go.',vidT2:'Blessings from Nepal',vidD2:'Health lessons, the clinic and the children’s smiles, ending with a “Namaste Taiwan” from the kids.',vidZoom:'Watch larger',vidClose:'Close',newsH:'Latest news',newsPrev:'Previous',newsNext:'Next',newsGo:'See more',nw_ev_tag:'Campus booth',nw_ev_t:'Namaste, one more combo!',nw_ev_p:'Sat 11/21, campus anniversary: the ShiNepal booth is open! A fried-snack combo with Nepali spiced milk tea for just NT$120, plus handmade goods from Nepal.',nw_ev_w:'Sat',nw_ev_go:'See the booth posters',nw_sale_tag:'New',nw_sale_t:'Charity-sale items are online',nw_sale_p:'See the details and prices of the ShiNepal dry-fit T-shirt and our other charity-sale items.',nw_don_tag:'New',nw_don_t:'Donation gifts preview',nw_don_p:'Every donation gets a certificate, with ShiNepal products and a children’s blessing card by amount. (Some tiers are drafts.)',evTag:'Campus event',evDate:'11/21',evDow:'Sat',evT:'11/21 campus anniversary: eat well and do good at the ShiNepal booth!',evP:'On the National Defense Medical University anniversary, the ShiNepal volunteer group has a booth on campus. Come find us:<ul><li>🍟 <b>“Namaste, one more combo!” for just NT$120</b>: golden fries, crispy cheese rings and fried chicken bites, with a warm cup of Nepali spiced milk tea.</li><li>🐑 <b>Handmade goods from Nepal</b>: fuzzy felt animals, singing bowls, khukuri knives and wooden chess sets.</li></ul>Every dollar from the booth goes to our next trip to Nepal: the free clinic, health lessons and computer classes. Grab a combo, take home a keepsake, and help the children of Nepal!',supP:'Every bit of support powers our next clinic, health class and computer lesson. You can donate directly, or buy our charity-sale items.',tabDon:'Donate',tabShop:'Charity sale',donH:'Donations and thank-you gifts',donP:'Every donation receives a certificate, and larger gifts also come with ShiNepal original products and a blessing card from children in Nepal.',donTh1:'Donation',donTh2:'Certificate',donTh3:'ShiNepal products',donTh4:'Blessing card and small item',tagOk:'Confirmed',tagDraft:'Draft',dt0_1:'E-certificate of thanks',dt0_2:'—',dt0_3:'Postcard illustrated by children in Nepal, with a blessing in Nepali',dt1_1:'Printed certificate of thanks',dt1_2:'—',dt1_3:'Blessing postcard, plus a pad of sticky notes',dt2_1:'Printed certificate',dt2_2:'One main item, your pick of: thick canvas tote, ShiNepal team shirt, small felt wool craft',dt2_3:'One small item, your pick of: blessing postcard or sticky notes',dt3_1:'Framed printed certificate',dt3_2:'Two main items, any mix of the three above',dt3_3:'One blessing postcard and one pad of sticky notes',dt4_1:'Framed certificate, plus a listing under “Special thanks” on this site',dt4_2:'Two main items, any mix of the three above',dt4_3:'One blessing postcard and one pad of sticky notes',donNote1:'Tiers marked “Draft” are still to be confirmed by the team, and amounts and gifts may change.',donNote2:'Physical gifts ship to Taiwan main island only. Donors overseas receive an e-certificate.',donBuy:'Donations open soon',donBuyNote:'Online donations are still being prepared and will open once the collecting organization is confirmed.',pdV5:'S–2XL',pdV6:'Polyester',pdV7:'Machine/hand washable',pdV8:'50 pcs',thanksP:'Special thanks to <mark class="hl">ASUS</mark> for their support and sponsorship, and thank you to <mark class="hl">SIMBALION</mark>, the <mark class="hl">Youth Development Administration</mark>, the <mark class="hl">Taiwan Urbani Foundation</mark> and <mark class="hl">National Defense Medical University</mark>. We could not have come this far without you.',thxMsg:'Every clinic, every health class and every smile has a little of you in it.',thxC1:'<mark class="hl">Walking with Nepal</mark>, <mark class="hl">together all the way</mark>',thxC2:'<mark class="hl">Nepal</mark> is better with you',pdN:'ShiNepal dry-fit T-shirt',pdTag:'Team original · charity sale',pdPrice:'NT$ 400',pdTabF:'Front',pdTabB:'Back',pdTab3:'3D view',pdHint3:'Drag to rotate, or turn on auto-rotate',pdAuto:'Auto-rotate',pdNote3d:'The 3D view is generated live from the front and back photos. It is a preview, and the real shirt may fit differently.',pdSpecH:'Product details',pdK1:'Name',pdV1:'ShiNepal dry-fit T-shirt',pdK2:'Color',pdV2:'Gray',pdK3:'Front print',pdV3:'ShiNepal tiger-eyes graphic in black, orange and white, with mandala accents',pdK4:'Back print',pdV4:'“享尼” set vertically, NEPAL x TAIWAN, and a hand-drawn flower with “Shine in Nepal” near the hem',pdK5:'Sizes',pdK6:'Fabric',pdK7:'Care',pdK8:'Stock',pdK9:'Shipping',pdV9:'Taiwan main island only. Shipping fee is extra (amount to be decided).',pdTbd:'To be confirmed',pdBuy:'Coming soon',pdBuyNote:'Online ordering is still being prepared. For browsing only.',pdAlt1:'ShiNepal dry-fit T-shirt, front, cut out',pdAlt2:'ShiNepal dry-fit T-shirt, back, cut out',tn_asus:'ASUS',tn_simba:'SIMBALION',tn_yda:'Youth Development Administration, Ministry of Education',tn_urbani:'Taiwan Urbani Foundation',tn_ndmu:'National Defense Medical University',supNav:'Support us',thxNav:'Special thanks',supH:'Support us',supNote:'Prices are in New Taiwan Dollars (NT$). Tap an item icon to add it to your cart; pay by bank transfer after ordering. Ships within Taiwan main island only.',thxH:'Special thanks',thxP:'Thank you to the organizations and partners who stand with us.',spn_asus:'ASUS',spn_simba:'SIMBALION',spn_yda:'Youth Development Administration, Ministry of Education',spn_urbani:'Taiwan Urbani Foundation',spn_ndmc:'National Defense Medical University',sc_apparel:'Apparel',si_apparel0:'ShiNepal dry-fit T-shirt',si_apparel1:'ShiNepal cotton T-shirt',sc_bags:'Bags',si_bags0:'Canvas tote',sv_bags0_0:'Thin',sv_bags0_1:'Thick',si_bags1:'Crossbody bag',si_bags2:'Square bag',sv_bags2_0:'S',sv_bags2_1:'L',si_bags3:'Pencil case',si_bags4:'Makeup pouch',si_bags5:'Travel makeup pouch',si_bags6:'Coin purse',sc_craft:'Handmade & decor',si_craft0:'Felt wool craft',sv_craft0_0:'S',sv_craft0_1:'M',si_craft1:'Singing bowl',sv_craft1_0:'S',sv_craft1_1:'L',si_craft2:'Knife',sv_craft2_0:'S',sv_craft2_1:'L',sc_acc:'Accessories',si_acc0:'Silk scarf',si_acc1:'Scarf',si_acc2:'Eye mask',sc_stat:'Stationery & small items',si_stat0:'Postcard',si_stat1:'Sticky notes',si_stat2:'File folder',si_stat3:'Landscape print',si_stat4:'Lip balm',
       eyebrow:'National Defense Medical University Nepal Volunteer Group',h1:'Meeting Nepal',lead:'We travel to Nepal to teach health education and computer classes in schools, and to run a free clinic. This page walks through what we did this time.',
       stat1:'course topics',stat2:'clinic departments',stat3:'scabies diagnosis rate at Lotus Primary School',
       whatH:'What we do',whatP:'Three things: health education, computer classes and a free clinic, and why each one matters.',rootT:'Nepal Volunteer Group',rootS:'National Defense Medical University',whyL:'Why it matters',w1:'When children learn hand washing, tooth brushing, how to avoid head lice and basic first aid, they can prevent illness early. Knowledge that stays with them goes further than a one-off treatment.',w2:'Computers are a doorway to information and to the wider world. After the class, the resources stay in Nepal so the children can keep learning.',w3:'People who often find it hard to see a doctor can get checked and receive medicine, and the records we collect support later follow-up and referrals.',
@@ -1579,7 +1661,7 @@ h1.fancy .ch:hover{animation:chJump .45s ease}
       futureH:'Looking ahead',futureP:'Tap a card to see the two things we want to do next.',n1t:'Improve the online case-record system',n1d:'Track medicine use precisely',n2t:'Work with local hospitals',n2d:'Strengthen follow-up and referrals after the clinic',
       goalsH:'Sustainable Development Goals',goalsP:'Our work connects to these five UN Sustainable Development Goals.',
       thanksH:'Thank you for getting to know us',
-      footA:'National Defense Medical University Nepal Volunteer Group',footB:'Content adapted from the team results deck "尼14成發影片". Photos are from the team\'s activity records.',navPhotos:'More photos',navMore:'More',navPhotos2:'ShiNepal 13 & 14 service photos',navHist:'Past news',navBoard:'Message board',boardH:'Message board',boardP:'Anything to say to ShiNepal? Cheers, questions or stories are all welcome!',bdName:'Nickname (optional)',bdMsg:'Your message',bdSend:'Post message',bdNote:'Messages appear publicly here. Please do not include phone numbers, addresses or other personal details.',bdSoon:'The message board is opening soon!',bdSkyT:'✨ Messages from the past 7 days',bdSkyE:'No messages this week yet. Leave the first one!',histH:'Past news',histP:'News older than a week and events that have ended are kept here.',histEmpty:'No past news yet.',nwEmpty:'No new updates right now. ',nwEmptyGo:'See past news →',back:'← Back to home',photosH:'More photos from the trip',photosP:'Activity photos that are not part of a topic above. Tap a photo to enlarge it.',rtTw:'Taiwan',rtNp:'Nepal',rtTh:'Thailand (layover)',mapCap:'Flight route: from Taiwan, a layover in Thailand, then on to Nepal. A zoomed-in sketch; positions are approximate.'}
+      footA:'National Defense Medical University Nepal Volunteer Group',footB:'Content adapted from the team results deck "尼14成發影片". Photos are from the team\'s activity records.',navPhotos:'More photos',navMore:'More',navPhotos2:'ShiNepal 13 & 14 service photos',navHist:'Past news',navBoard:'Message board',navOrder:'Order lookup',orderH:'Order lookup',orderP:'Enter your order no. and the mobile used for the order to see its progress and payment details, and to report your transfer.',boardH:'Message board',boardP:'Anything to say to ShiNepal? Cheers, questions or stories are all welcome!',bdName:'Nickname (optional)',bdMsg:'Your message',bdSend:'Post message',bdNote:'Messages appear publicly here. Please do not include phone numbers, addresses or other personal details.',bdSoon:'The message board is opening soon!',bdSkyT:'✨ Messages from the past 7 days',bdSkyE:'No messages this week yet. Leave the first one!',histH:'Past news',histP:'News older than a week and events that have ended are kept here.',histEmpty:'No past news yet.',nwEmpty:'No new updates right now. ',nwEmptyGo:'See past news →',back:'← Back to home',photosH:'More photos from the trip',photosP:'Activity photos that are not part of a topic above. Tap a photo to enlarge it.',rtTw:'Taiwan',rtNp:'Nepal',rtTh:'Thailand (layover)',mapCap:'Flight route: from Taiwan, a layover in Thailand, then on to Nepal. A zoomed-in sketch; positions are approximate.'}
   };
 
   var L='zh', topicIdx=0, compIdx=0, yearIdx=1, nextIdx=-1;
@@ -1934,18 +2016,18 @@ h1.fancy .ch:hover{animation:chJump .45s ease}
 
 
   function route(){
-    var h=location.hash, isP=(h==='#photos'), isH=(h==='#history'), isB=(h==='#board');
-    $('#top').hidden=isP||isH||isB; $('#photosMain').hidden=!isP; $('#historyMain').hidden=!isH; $('#boardMain').hidden=!isB;
-    var pl=document.getElementById('navMore'); if(pl){ if(isP||isH||isB){pl.setAttribute('aria-current','true');}else{pl.removeAttribute('aria-current');} }
+    var h=location.hash, isP=(h==='#photos'), isH=(h==='#history'), isB=(h==='#board'), isO=(h==='#order');
+    $('#top').hidden=isP||isH||isB||isO; $('#orderMain').hidden=!isO; $('#photosMain').hidden=!isP; $('#historyMain').hidden=!isH; $('#boardMain').hidden=!isB;
+    var pl=document.getElementById('navMore'); if(pl){ if(isP||isH||isB||isO){pl.setAttribute('aria-current','true');}else{pl.removeAttribute('aria-current');} }
     document.querySelectorAll('#navMenu a').forEach(function(a){if(a.getAttribute('href')===h){a.setAttribute('aria-current','page');}else{a.removeAttribute('aria-current');}});
-    if(isP||isH||isB){window.scrollTo(0,0);if(isB&&window.loadBoard)loadBoard();}
+    if(isP||isH||isB||isO){window.scrollTo(0,0);if(isB&&window.loadBoard)loadBoard();}
     else if(h.length>1){var el=document.getElementById(h.slice(1)); if(el){requestAnimationFrame(function(){el.scrollIntoView();});}}
   }
   window.addEventListener('hashchange',route);
   route();
 
   // scroll spy
-  var links={}; document.querySelectorAll('#nav a').forEach(function(a){if(a.getAttribute('href')!=='#photos'&&a.getAttribute('href')!=='#history'&&a.getAttribute('href')!=='#board'){links[a.getAttribute('href').slice(1)]=a;}});
+  var links={}; document.querySelectorAll('#nav a').forEach(function(a){if(a.getAttribute('href')!=='#photos'&&a.getAttribute('href')!=='#history'&&a.getAttribute('href')!=='#board'&&a.getAttribute('href')!=='#order'){links[a.getAttribute('href').slice(1)]=a;}});
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){
       es.forEach(function(e){
@@ -2173,8 +2255,8 @@ h1.fancy .ch:hover{animation:chJump .45s ease}
   var W=360,H=300,R=20,CAP=24,G=80,REST=.5;
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   function en(){return document.documentElement.lang==='en';}
-  var D={zh:{cart:'購物車',open:'展開',close:'關閉',empty:'購物車還是空的，點一下義賣商品的小圖示就會有球掉進來喔！',cnt:'件數',tot:'金額',pcs:'件',hide:'隱藏購物車',remove:'移除',clear:'清空',checkout:'線上結帳（籌備中）',note:'線上購買與寄送尚在籌備中，目前僅供試玩預覽。',offer:'優惠與回饋（草案）',none:'再 NT$ {n} 就達到第一個回饋級距（NT$ {t}）。',reach:'已達 NT$ {t} 級距：',next:'再 NT$ {n} 可升到 NT$ {t} 級距。',top:'已是最高級距！',draft:'（草案，待確認）',ok:'（已確認）',offnote:'級距沿用「捐款」的滿額贈內容，實際用於義賣的辦法尚待團隊確認。',plus:'增加',minus:'減少',pick:'選擇規格',more:'還有 {n} 件'},
-    en:{cart:'Cart',open:'Expand',close:'Close',empty:'Your cart is empty. Tap an item icon in the shop and a ball will drop in!',cnt:'Items',tot:'Total',pcs:'pcs',hide:'Hide cart',remove:'Remove',clear:'Clear',checkout:'Checkout (coming soon)',note:'Online purchase and shipping are still being prepared; this is a preview.',offer:'Perks (draft)',none:'NT$ {n} more to reach the first reward tier (NT$ {t}).',reach:'Reached the NT$ {t} tier: ',next:'NT$ {n} more for the NT$ {t} tier.',top:'You are at the top tier!',draft:'(draft, to be confirmed)',ok:'(confirmed)',offnote:'Tiers reuse the donation reward tiers; how they apply to the sale is still to be confirmed.',plus:'Add',minus:'Remove',pick:'Choose option',more:'{n} more'}};
+  var D={zh:{cart:'購物車',open:'展開',close:'關閉',empty:'購物車還是空的，點一下義賣商品的小圖示就會有球掉進來喔！',cnt:'件數',tot:'金額',pcs:'件',hide:'隱藏購物車',remove:'移除',clear:'清空',checkout:'前往結帳',note:'僅寄送台灣本島；下單後以銀行轉帳付款，款項確認後出貨。',offer:'滿額回饋',none:'再 NT$ {n} 就達到第一個回饋級距（NT$ {t}）。',reach:'已達 NT$ {t} 級距：',next:'再 NT$ {n} 可升到 NT$ {t} 級距。',top:'已是最高級距！',draft:'（草案，待確認）',ok:'（已確認）',offnote:'回饋以商品金額（不含運費）計算，結帳時可以選擇回饋品。',plus:'增加',minus:'減少',pick:'選擇規格',more:'還有 {n} 件'},
+    en:{cart:'Cart',open:'Expand',close:'Close',empty:'Your cart is empty. Tap an item icon in the shop and a ball will drop in!',cnt:'Items',tot:'Total',pcs:'pcs',hide:'Hide cart',remove:'Remove',clear:'Clear',checkout:'Check out',note:'Shipping within Taiwan main island only. Pay by bank transfer after ordering; we ship once payment is confirmed.',offer:'Purchase perks',none:'NT$ {n} more to reach the first reward tier (NT$ {t}).',reach:'Reached the NT$ {t} tier: ',next:'NT$ {n} more for the NT$ {t} tier.',top:'You are at the top tier!',draft:'(draft, to be confirmed)',ok:'(confirmed)',offnote:'Perks are based on the item total (excluding shipping). You can choose your gift at checkout.',plus:'Add',minus:'Remove',pick:'Choose option',more:'{n} more'}};
   function T(k,o){var s=D[en()?'en':'zh'][k]||k;if(o)for(var x in o)s=s.replace('{'+x+'}',o[x]);return s;}
   function money(n){return 'NT$ '+n.toLocaleString('en-US');}
 
@@ -2302,7 +2384,7 @@ h1.fancy .ch:hover{animation:chJump .45s ease}
     if(!cart.length)h+='<p class="cdempty">'+T('empty')+'</p>';
     else{h+='<ul class="cdlines">';cart.forEach(function(l,i){var it=byKey[l.key],vl=vlabel(it,l.v);
       h+='<li><span class="nm">'+(it.emo||'👕')+' '+it.nameEl.textContent+(vl?'（'+vl+'）':'')+'</span><button data-a="m" data-i="'+i+'" aria-label="'+T('minus')+'">−</button><span class="q">'+l.qty+'</span><button data-a="p" data-i="'+i+'" aria-label="'+T('plus')+'">+</button><button class="rm" data-a="r" data-i="'+i+'" aria-label="'+T('remove')+' '+it.nameEl.textContent+'">✕ '+T('remove')+'</button><span class="pr">'+money(l.qty*it.vs[l.v].price)+'</span></li>';});h+='</ul>';}
-    h+=of+'<div class="cdact"><button type="button" data-a="c">'+T('clear')+'</button><button type="button" disabled>'+T('checkout')+'</button></div><p class="shopnote">'+T('note')+'</p>';
+    h+=of+'<div class="cdact"><button type="button" data-a="c">'+T('clear')+'</button><button type="button" class="cdgo" data-a="co"'+(tt.n?'':' disabled')+'>'+T('checkout')+' →</button></div><p class="shopnote">'+T('note')+'</p>';
     board.innerHTML=h;
     dock.hidden=!dock.classList.contains('full')&&(!tt.n||dismissed);
     document.getElementById('cdHide').setAttribute('aria-label',T('hide'));
@@ -2310,6 +2392,7 @@ h1.fancy .ch:hover{animation:chJump .45s ease}
   function sfx(n,o){if(window.SFX)SFX.play(n,o);}
   function tierIx(t){var n=-1;tiers().forEach(function(x,i){if(t>=x.amt)n=i;});return n;}
   function add(key,v,silent){
+    var l0=line(key,v);if(window.ShopGuard&&!ShopGuard.can(key,v,l0?l0.qty:0)){sfx('deny');if(ShopGuard.warn)ShopGuard.warn(key,v);return;}
     dismissed=false;var t0=tierIx(totals().t);var l=line(key,v);if(l){if(l.qty>=99){sfx('deny');return;}l.qty++;}else cart.push({key:key,v:v,qty:1});
     sfx('item',{key:key});
     var t1=tierIx(totals().t);if(t1>t0)setTimeout(function(){sfx('reward');},450);
@@ -2324,8 +2407,16 @@ h1.fancy .ch:hover{animation:chJump .45s ease}
     else if(a==='m'){sub(cart[i].key,cart[i].v);}
     else if(a==='r'){sfx('minus');var l0=cart[i],k0=l0.key,q0=l0.qty;cart.splice(i,1);for(var z=balls.length-1;z>=0&&q0>0;z--)if(balls[z].key===k0){balls.splice(z,1);q0--;}
       for(var z2=pending.length-1;z2>=0&&q0>0;z2--)if(pending[z2].key===k0){pending.splice(z2,1);q0--;}save();render();wake();}
-    else if(a==='c'){if(cart.length)sfx('swoosh');cart=[];balls=[];pending=[];save();render();wake();}});
-  function openFull(){sfx('open');dock.classList.add('full');dock.hidden=false;document.documentElement.style.overflow='hidden';render();
+    else if(a==='c'){if(cart.length)sfx('swoosh');cart=[];balls=[];pending=[];save();render();wake();}
+    else if(a==='co'){if(window.openCheckout)openCheckout();}});
+    window.ShopCart={
+    lines:function(){return cart.map(function(l){var it=byKey[l.key];var vl=vlabel(it,l.v);return {sku:l.key+':'+l.v,key:l.key,v:l.v,qty:l.qty,name:it.nameEl.textContent+(vl?'（'+vl+'）':''),price:it.vs[l.v].price};});},
+    clear:function(){cart=[];balls=[];pending=[];save();render();wake();},
+    add:function(key,v){add(key,v||0);},
+    close:function(){if(dock.classList.contains('full'))closeFull();},
+    refresh:function(){render();}
+  };
+function openFull(){sfx('open');dock.classList.add('full');dock.hidden=false;document.documentElement.style.overflow='hidden';render();
     balls=[];pending=[];var k=0;cart.forEach(function(l){for(var i=0;i<l.qty&&k<CAP;i++,k++)pending.push({key:l.key,t:.15+k*.2});});wake();
     document.getElementById('cdClose').focus();}
   function closeFull(){sfx('close');dock.classList.remove('full');document.documentElement.style.overflow='';render();balls=[];pending=[];var k=0;cart.forEach(function(l){for(var i=0;i<l.qty&&k<CAP;i++,k++)pending.push({key:l.key,t:0});});for(var i=0;i<400;i++)step(1/60);wake();draw();btn.focus();}
@@ -2656,4 +2747,192 @@ h1.fancy .ch:hover{animation:chJump .45s ease}
   document.getElementById('nav').addEventListener('scroll',function(){if(!m.hidden)place();},{passive:true});
 })();
 </script>
+<script>
+/* ===== 享尼義賣：庫存、結帳、訂單查詢（Supabase） ===== */
+(function(){
+  var SB_URL='https://rxhtqmqjeyllnlqisomy.supabase.co',SB_KEY='sb_publishable_TerNtl1nSsLO3kahk7hC1w_wH5VGzc4';
+  function L(){return document.documentElement.lang==='en';}
+  function T(zh,en){return L()?en:zh;}
+  function money(n){return 'NT$ '+Number(n||0).toLocaleString('en-US');}
+  function esc(x){return String(x==null?'':x).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function hdr(){var h={apikey:SB_KEY,'Content-Type':'application/json'};if(/^eyJ/.test(SB_KEY))h.Authorization='Bearer '+SB_KEY;return h;}
+  function get(path){return fetch(SB_URL+'/rest/v1/'+path,{headers:hdr()}).then(function(r){if(!r.ok)throw r;return r.json();});}
+  function rpc(fn,body){return fetch(SB_URL+'/rest/v1/rpc/'+fn,{method:'POST',headers:hdr(),body:JSON.stringify(body)}).then(function(r){
+    return r.text().then(function(t){var j=null;try{j=t?JSON.parse(t):null;}catch(_){}if(!r.ok){var e=new Error((j&&j.message)||('HTTP '+r.status));e.code=(j&&j.message)||'';throw e;}return j;});});}
+  function fmtTime(d){return new Date(d).toLocaleString(L()?'en-US':'zh-TW',{timeZone:'Asia/Taipei',year:'numeric',month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'});}
+  function fmtDay(d){var x=new Date(new Date(d).getTime()-1000);return x.toLocaleDateString(L()?'en-US':'zh-TW',{timeZone:'Asia/Taipei',year:'numeric',month:'numeric',day:'numeric',weekday:'short'})+' 23:59';}
+
+  var P={},S=null,TIERS=[],ready=false;
+  /* ---------- stock & availability ---------- */
+  window.ShopGuard={
+    can:function(key,v,cur){var p=P[key+':'+v];if(!ready||!p)return true;if(!p.active)return false;if(p.stock!=null&&cur>=p.stock)return false;return true;},
+    warn:function(key,v){var p=P[key+':'+v];if(!p)return;toast(!p.active?T('「'+p.name+'」僅在活動現場販售，無法線上下單。','“'+p.name+'” is sold at our events only.'):p.stock===0?T('「'+p.name+'」已售完。','“'+p.name+'” is sold out.'):T('「'+p.name+'」庫存只剩 '+p.stock+' 件。','Only '+p.stock+' left of “'+p.name+'”.'));}
+  };
+  var tw=null;function toast(m){if(!tw){tw=document.createElement('div');tw.className='shtoast';tw.setAttribute('role','status');document.body.appendChild(tw);}tw.textContent=m;tw.classList.add('on');clearTimeout(tw._t);tw._t=setTimeout(function(){tw.classList.remove('on');},2600);}
+  function mark(){
+    document.querySelectorAll('#panShop .shop .sitem').forEach(function(li){
+      var nm=li.querySelector('.sn [data-i18n^="si_"]');if(!nm)return;var key=nm.getAttribute('data-i18n');
+      var old=li.querySelector('.shbadges');if(old)old.remove();
+      var svs=li.querySelectorAll('.sv'),tags=[],off=0;
+      svs.forEach(function(sv,v){
+        var p=P[key+':'+v];sv.classList.remove('soldout','offline');if(!p)return;
+        var b=sv.querySelector('b');if(b)b.textContent=money(p.price);
+        var tag=null,cls='';
+        if(!p.active){sv.classList.add('offline');tag=T('僅現場販售','Events only');off++;}
+        else if(p.stock===0){sv.classList.add('soldout');tag=T('已售完','Sold out');cls='x';off++;}
+        else if(p.stock!=null&&p.stock<=5){tag=T('剩 '+p.stock+' 件','Only '+p.stock+' left');}
+        if(tag){var em=sv.querySelector('em');tags.push({t:tag,c:cls,l:svs.length>1&&em?em.textContent:''});}
+      });
+      if(tags.length){
+        var same=tags.length===svs.length&&tags.every(function(x){return x.t===tags[0].t;});
+        var w=document.createElement('span');w.className='shbadges';
+        (same?[{t:tags[0].t,c:tags[0].c,l:''}]:tags).forEach(function(x){var t=document.createElement('span');t.className='shbadge'+(x.c?' '+x.c:'');t.textContent=(x.l?x.l+'：':'')+x.t;w.appendChild(t);});
+        li.querySelector('.sn').appendChild(w);
+      }
+      li.classList.toggle('sitem-off',off===svs.length&&svs.length>0);
+    });
+    var tee=P['si_apparel0:0'],bb=document.querySelector('#p-dryfit .pdbuy'),bn=document.querySelector('#p-dryfit .pdinfo .shopnote');
+    if(bb&&tee){bb.removeAttribute('data-i18n');if(bn)bn.removeAttribute('data-i18n');var off=!tee.active||tee.stock===0;bb.disabled=off;bb.classList.toggle('on',!off);
+      bb.textContent=off?(tee.stock===0?T('已售完','Sold out'):T('僅現場販售','Events only')):T('加入購物車','Add to cart');
+      if(bn)bn.textContent=T('尺寸 S–2XL，結帳時填寫。僅寄送台灣本島。','Sizes S–2XL, chosen at checkout. Ships within Taiwan main island only.');
+      var st=document.querySelector('#p-dryfit [data-i18n="pdV8"],#p-dryfit [data-sh="v8"]');if(st){st.removeAttribute('data-i18n');st.setAttribute('data-sh','v8');}if(st)st.textContent=tee.stock==null?T('現貨','In stock'):(tee.stock+T(' 件',' pcs'));
+      var sh=document.querySelector('#p-dryfit [data-i18n="pdV9"],#p-dryfit [data-sh="v9"]');if(sh&&S){sh.removeAttribute('data-i18n');sh.setAttribute('data-sh','v9');}if(sh&&S)sh.textContent=T('僅寄送台灣本島，運費 '+money(S.shipping_fee)+(S.free_shipping_over?'（滿 '+money(S.free_shipping_over)+' 免運）':''),'Taiwan main island only, shipping '+money(S.shipping_fee)+(S.free_shipping_over?' (free over '+money(S.free_shipping_over)+')':''));}
+  }
+  var pb=document.querySelector('#p-dryfit .pdbuy');
+  if(pb)pb.addEventListener('click',function(){if(!pb.disabled&&window.ShopCart){ShopCart.add('si_apparel0',0);toast(T('已加入購物車','Added to cart'));}});
+  function load(){
+    return Promise.all([get('products?select=sku,name,price,stock,active'),get('shop_settings?select=*'),get('reward_tiers?select=amount,perks&order=amount')])
+      .then(function(r){P={};r[0].forEach(function(p){P[p.sku]=p;});S=r[1][0]||null;TIERS=r[2]||[];ready=true;mark();if(window.ShopCart)ShopCart.refresh();})
+      .catch(function(){ready=false;});
+  }
+  load();
+  new MutationObserver(function(){if(ready)mark();if(dlg.open)renderForm(true);renderLookup();}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+
+  /* ---------- checkout dialog ---------- */
+  var dlg=document.createElement('dialog');dlg.className='codlg';dlg.id='coDlg';dlg.setAttribute('aria-labelledby','coT');
+  document.body.appendChild(dlg);
+  var saved={};try{saved=JSON.parse(localStorage.getItem('shinepal_buyer')||'{}')||{};}catch(_){}
+  function lines(){return window.ShopCart?ShopCart.lines().map(function(l){var p=P[l.sku];return {sku:l.sku,qty:l.qty,name:p?p.name:l.name,price:p?p.price:l.price};}):[];}
+  function calc(ls){var sub=0;ls.forEach(function(l){sub+=l.price*l.qty;});var ship=S?((S.free_shipping_over&&sub>=S.free_shipping_over)?0:S.shipping_fee):0;
+    var tier=null;TIERS.forEach(function(t){if(sub>=t.amount)tier=t;});return {sub:sub,ship:ship,total:sub+ship,tier:tier};}
+  function field(id,label,attrs,val,hint){return '<label class="cof"><span>'+label+'</span><input id="'+id+'" '+attrs+' value="'+esc(val||'')+'">'+(hint?'<small>'+hint+'</small>':'')+'</label>';}
+  function keep(){var o={};['coName','coPhone','coEmail','coZip','coAddr','coSizes','coChoice','coNote'].forEach(function(k){var e=document.getElementById(k);if(e)o[k]=e.value;});var a=document.getElementById('coAgree');if(a)o.coAgree=a.checked;return o;}
+  function renderForm(preserve){
+    var v=preserve?keep():{coName:saved.name,coPhone:saved.phone,coEmail:saved.email,coZip:saved.zip,coAddr:saved.address};
+    var ls=lines(),c=calc(ls),apparel=ls.some(function(l){return /^si_apparel/.test(l.sku);});
+    var h='<form method="dialog" class="coform" id="coForm" novalidate><div class="cohead"><h2 id="coT">'+T('結帳','Checkout')+'</h2><button type="button" class="cox" data-x aria-label="'+T('關閉','Close')+'">✕</button></div>';
+    if(!ready){h+='<p class="coerr">'+T('目前無法連線到訂單系統，請稍後再試。','The order system is unavailable right now. Please try again later.')+'</p></form>';dlg.innerHTML=h;return;}
+    if(S&&!S.orders_open){h+='<p class="coerr">'+T('線上訂購暫停中，請追蹤我們的 IG／FB 取得最新消息。','Online ordering is paused. Follow our IG / FB for updates.')+'</p></form>';dlg.innerHTML=h;return;}
+    h+='<div class="cogrid"><div class="cocol">';
+    h+='<h3>'+T('收件資料','Shipping details')+'</h3>';
+    h+=field('coName',T('收件人姓名','Recipient name'),'maxlength="40" autocomplete="name" required',v.coName);
+    h+=field('coPhone',T('手機','Mobile'),'inputmode="tel" maxlength="12" autocomplete="tel" placeholder="09xxxxxxxx" required',v.coPhone,T('查詢訂單時也會用到','Also used to look up your order'));
+    h+=field('coEmail','Email','type="email" maxlength="120" autocomplete="email" required',v.coEmail,T('訂單確認信會寄到這裡','Order confirmation is sent here'));
+    h+='<div class="corow">'+field('coZip',T('郵遞區號（選填）','Postcode (optional)'),'inputmode="numeric" maxlength="6" autocomplete="postal-code"',v.coZip)+'</div>';
+    h+=field('coAddr',T('收件地址（僅限台灣本島）','Address (Taiwan main island only)'),'maxlength="200" autocomplete="street-address" required',v.coAddr);
+    if(apparel)h+=field('coSizes',T('T恤尺寸（S–2XL）','T-shirt sizes (S–2XL)'),'maxlength="100" placeholder="'+T('例如：M×1、L×1','e.g. M×1, L×1')+'" required',v.coSizes);
+    if(c.tier)h+=field('coChoice',T('回饋品選擇','Your gift choice'),'maxlength="100" placeholder="'+T('例如：厚帆布袋＋明信片','e.g. thick tote + postcard')+'"',v.coChoice,esc(c.tier.perks));
+    h+='<label class="cof"><span>'+T('備註（選填）','Note (optional)')+'</span><textarea id="coNote" maxlength="300" rows="2">'+esc(v.coNote||'')+'</textarea></label>';
+    h+='</div><div class="cocol cosum"><h3>'+T('訂單明細','Order summary')+'</h3>';
+    if(!ls.length)h+='<p>'+T('購物車是空的。','Your cart is empty.')+'</p>';
+    h+='<ul class="colines">';ls.forEach(function(l){var p=P[l.sku],warn='';
+      if(p&&!p.active)warn=T('僅現場販售，請先移除','Events only, please remove');else if(p&&p.stock!=null&&p.stock<l.qty)warn=p.stock?T('庫存只剩 '+p.stock+' 件','Only '+p.stock+' left'):T('已售完，請先移除','Sold out, please remove');
+      h+='<li><span>'+esc(l.name)+' × '+l.qty+(warn?'<em class="cowarn">'+warn+'</em>':'')+'</span><b>'+money(l.price*l.qty)+'</b></li>';});
+    h+='</ul><dl class="cototal"><dt>'+T('商品金額','Items')+'</dt><dd>'+money(c.sub)+'</dd><dt>'+T('宅配運費','Shipping')+'</dt><dd>'+(c.ship?money(c.ship):T('免運','Free'))+'</dd><dt class="cot">'+T('應付金額','Total')+'</dt><dd class="cot">'+money(c.total)+'</dd></dl>';
+    var nt=null;for(var i=0;i<TIERS.length;i++){if(c.sub<TIERS[i].amount){nt=TIERS[i];break;}}
+    h+='<p class="cotier">🎁 '+(c.tier?T('已達 '+money(c.tier.amount)+' 回饋級距：','Reached the '+money(c.tier.amount)+' tier: ')+esc(c.tier.perks):T('尚未達到回饋級距','No perk tier reached yet'))+(nt?'<br><small>'+T('再買 '+money(nt.amount-c.sub)+' 可達 '+money(nt.amount)+' 級距','Spend '+money(nt.amount-c.sub)+' more for the '+money(nt.amount)+' tier')+'</small>':'')+'</p>';
+    h+='<p class="copay">💳 '+T('付款方式：銀行轉帳。送出訂單後會顯示匯款帳號，請在期限內完成匯款，並回報帳號末五碼。','Payment: bank transfer. The account is shown after you place the order; please transfer before the deadline and report the last 5 digits of your account.')+'</p>';
+    h+='</div></div>';
+    h+='<label class="coagree"><input type="checkbox" id="coAgree"'+(v.coAgree?' checked':'')+'> <span>'+T('我同意享尼尼泊爾國際志工團蒐集以上資料，僅用於本次訂單的聯絡、出貨與回饋品寄送，不會另作他用。','I agree that ShiNepal collects the details above only to contact me, ship this order and send the gift, and for no other purpose.')+'</span></label>';
+    h+='<p class="coerr" id="coErr" role="alert"></p><div class="coact"><button type="button" class="cobtn2" data-x>'+T('繼續逛逛','Keep shopping')+'</button><button type="submit" class="cobtn" id="coSend"'+(ls.length?'':' disabled')+'>'+T('送出訂單','Place order')+' · '+money(c.total)+'</button></div></form>';
+    dlg.innerHTML=h;
+    document.getElementById('coForm').addEventListener('submit',submit);
+  }
+  dlg.addEventListener('click',function(e){if(e.target.closest('[data-x]')||e.target===dlg)dlg.close();});
+  var ERR={ORDERS_CLOSED:['線上訂購暫停中。','Online ordering is paused.'],BAD_NAME:['請填寫收件人姓名。','Please enter the recipient name.'],BAD_PHONE:['手機號碼格式不正確（09 開頭共 10 碼）。','Please enter a valid Taiwan mobile number (09xxxxxxxx).'],
+    BAD_EMAIL:['Email 格式不正確。','Please enter a valid email.'],BAD_ADDRESS:['請填寫完整的收件地址。','Please enter the full address.'],NO_CONSENT:['請勾選同意個人資料的使用說明。','Please tick the consent box.'],
+    TOO_MANY_ORDERS:['這支手機已有多筆未付款訂單，請先完成付款或聯絡我們。','This phone already has several unpaid orders. Please pay or contact us first.'],NEED_SIZES:['請填寫 T 恤尺寸。','Please enter the T-shirt sizes.'],BAD_ITEMS:['購物車內容有誤，請重新整理後再試。','Something is wrong with the cart. Please refresh and try again.']};
+  function errText(code){
+    var m=/^(OUT_OF_STOCK|UNAVAILABLE):([^:]+:\d+)(?::(\d+))?/.exec(code||'');
+    if(m){var p=P[m[2]],n=p?p.name:m[2];return m[1]==='UNAVAILABLE'?T('「'+n+'」目前無法線上購買，請從購物車移除。','“'+n+'” cannot be ordered online. Please remove it.'):(+m[3]?T('「'+n+'」庫存只剩 '+m[3]+' 件，請調整數量。','Only '+m[3]+' left of “'+n+'”. Please adjust the quantity.'):T('「'+n+'」已售完，請從購物車移除。','“'+n+'” is sold out. Please remove it.'));}
+    var e=ERR[code];return e?T(e[0],e[1]):T('送出失敗，請稍後再試。','Could not place the order. Please try again later.');
+  }
+  function val(id){var e=document.getElementById(id);return e?e.value.trim():'';}
+  function submit(ev){
+    ev.preventDefault();var er=document.getElementById('coErr'),bt=document.getElementById('coSend');
+    var ls=lines(),need=[['coName','BAD_NAME'],['coPhone','BAD_PHONE'],['coEmail','BAD_EMAIL'],['coAddr','BAD_ADDRESS']];
+    if(document.getElementById('coSizes'))need.push(['coSizes','NEED_SIZES']);
+    for(var i=0;i<need.length;i++){if(!val(need[i][0])){er.textContent=errText(need[i][1]);document.getElementById(need[i][0]).focus();return;}}
+    if(!/^09\d{8}$/.test(val('coPhone').replace(/\D/g,''))){er.textContent=errText('BAD_PHONE');document.getElementById('coPhone').focus();return;}
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(val('coEmail'))){er.textContent=errText('BAD_EMAIL');document.getElementById('coEmail').focus();return;}
+    if(!document.getElementById('coAgree').checked){er.textContent=errText('NO_CONSENT');return;}
+    var body={name:val('coName'),phone:val('coPhone'),email:val('coEmail'),zip:val('coZip'),address:val('coAddr'),note:val('coNote'),sizes:val('coSizes'),reward_choice:val('coChoice'),agree:true,
+      items:ls.map(function(l){return {sku:l.sku,qty:l.qty};})};
+    bt.disabled=true;er.textContent='';bt.textContent=T('送出中…','Placing order…');
+    rpc('place_order',{p:body}).then(function(o){
+      saved={name:body.name,phone:body.phone,email:body.email,zip:body.zip,address:body.address};try{localStorage.setItem('shinepal_buyer',JSON.stringify(saved));localStorage.setItem('shinepal_last_order',JSON.stringify({no:o.order_no,phone:body.phone}));}catch(_){}
+      if(window.ShopCart)ShopCart.clear();showDone(o,body.phone);load();
+      if(window.SFX)SFX.play('reward');
+    }).catch(function(e){er.textContent=errText(e.code);bt.disabled=false;bt.textContent=T('送出訂單','Place order');load().then(function(){});});
+  }
+  function bankBox(b,total,payBy){
+    if(!b||!b.account)return '<div class="cobank"><p>'+T('團隊會在 1–2 天內以 Email 提供匯款帳號，請留意信箱。','We will email you the bank account within 1–2 days.')+'</p></div>';
+    return '<div class="cobank"><dl><dt>'+T('銀行','Bank')+'</dt><dd>'+esc(b.name||'')+(b.code?'（'+esc(b.code)+'）':'')+'</dd><dt>'+T('帳號','Account')+'</dt><dd class="coacct">'+esc(b.account)+' <button type="button" class="cocopy" data-copy="'+esc(b.account)+'">'+T('複製','Copy')+'</button></dd>'+(b.holder?'<dt>'+T('戶名','Holder')+'</dt><dd>'+esc(b.holder)+'</dd>':'')+'<dt>'+T('金額','Amount')+'</dt><dd><b>'+money(total)+'</b></dd>'+(payBy?'<dt>'+T('匯款期限','Pay by')+'</dt><dd>'+fmtDay(payBy)+'</dd>':'')+'</dl></div>';
+  }
+  document.addEventListener('click',function(e){var b=e.target.closest('.cocopy');if(!b)return;var t=b.getAttribute('data-copy');
+    (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent=T('已複製','Copied');},function(){b.textContent=t;});});
+  function showDone(o,phone){
+    var h='<div class="coform codone"><div class="cohead"><h2 id="coT">'+T('訂單已送出！','Order placed!')+'</h2><button type="button" class="cox" data-x aria-label="'+T('關閉','Close')+'">✕</button></div>';
+    h+='<p class="cono">'+T('訂單編號','Order no.')+' <b>'+esc(o.order_no)+'</b> <button type="button" class="cocopy" data-copy="'+esc(o.order_no)+'">'+T('複製','Copy')+'</button></p>';
+    h+='<ol class="costeps"><li>'+T('請在期限內匯款到下方帳戶：','Transfer the amount to the account below before the deadline:')+'</li></ol>'+bankBox(o.bank,o.total,o.pay_by);
+    h+='<ol class="costeps" start="2"><li>'+T('匯款後到「其他 → 訂單查詢」，輸入訂單編號和手機，回報你的帳號末五碼。','After transferring, go to “More → Order lookup”, enter your order no. and phone, and report the last 5 digits of your account.')+'</li><li>'+T('團隊確認收款後就會出貨，出貨進度也能在訂單查詢看到。','We ship once payment is confirmed; you can follow the progress in Order lookup.')+'</li></ol>';
+    if(o.reward_amount)h+='<p class="cotier">🎁 '+T('本筆訂單達到 '+money(o.reward_amount)+' 回饋級距：','This order reached the '+money(o.reward_amount)+' tier: ')+esc(o.reward_perks)+'</p>';
+    h+='<div class="coact"><a class="cobtn2" href="#order" data-x>'+T('前往訂單查詢','Go to order lookup')+'</a><button type="button" class="cobtn" data-x>'+T('完成','Done')+'</button></div></div>';
+    dlg.innerHTML=h;
+  }
+  window.openCheckout=function(){if(window.ShopCart)ShopCart.close();renderForm(false);if(!dlg.open)dlg.showModal();if(!ready)load().then(function(){if(dlg.open&&ready)renderForm(true);});};
+
+  /* ---------- order lookup page ---------- */
+  var lk=document.getElementById('orderLookup'),res=null,lastQ=null;
+  var FLOW=['待付款','已回報匯款','已付款','已出貨','已完成'],EN={'待付款':'Awaiting payment','已回報匯款':'Payment reported','已付款':'Paid','已出貨':'Shipped','已完成':'Completed','已取消':'Cancelled'};
+  function stName(s){return L()?(EN[s]||s):s;}
+  function renderLookup(){
+    if(!lk)return;var last={};try{last=JSON.parse(localStorage.getItem('shinepal_last_order')||'{}')||{};}catch(_){}
+    var q=lastQ||last;
+    var h='<form class="bdform olform" id="olForm" novalidate><label><span>'+T('訂單編號','Order no.')+'</span><input id="olNo" maxlength="20" placeholder="SN261120-00001" value="'+esc(q.no||'')+'" autocapitalize="characters"></label><label><span>'+T('下單時填的手機','Mobile used for the order')+'</span><input id="olPhone" inputmode="tel" maxlength="12" placeholder="09xxxxxxxx" value="'+esc(q.phone||'')+'"></label><div class="bdrow"><span></span><button type="submit" class="evbtn">'+T('查詢訂單','Look up')+'</button></div><p class="bdstatus" id="olMsg" role="status"></p></form><div id="olRes"></div>';
+    lk.innerHTML=h;
+    document.getElementById('olForm').addEventListener('submit',function(e){e.preventDefault();lookup(val('olNo'),val('olPhone'));});
+    if(res)showOrder(res);
+  }
+  function lookup(no,phone){
+    var m=document.getElementById('olMsg');if(!no||!phone){m.textContent=T('請輸入訂單編號和手機。','Please enter the order no. and mobile.');return;}
+    lastQ={no:no,phone:phone};m.textContent=T('查詢中…','Looking up…');
+    rpc('get_order',{p_order_no:no,p_phone:phone}).then(function(o){if(!o){res=null;document.getElementById('olRes').innerHTML='';m.textContent=T('找不到這筆訂單，請確認訂單編號和手機。','Order not found. Please check the order no. and mobile.');return;}m.textContent='';res=o;showOrder(o);})
+      .catch(function(){m.textContent=T('查詢失敗，請稍後再試。','Lookup failed. Please try again later.');});
+  }
+  function showOrder(o){
+    var box=document.getElementById('olRes');if(!box)return;var cancel=o.status==='已取消',idx=FLOW.indexOf(o.status);
+    var h='<article class="olcard"><div class="olhead"><b>'+esc(o.order_no)+'</b><span class="olst'+(cancel?' x':'')+'">'+esc(stName(o.status))+'</span></div><p class="olmeta">'+T('下單時間：','Ordered: ')+fmtTime(o.created_at)+'</p>';
+    if(!cancel){h+='<ol class="olflow">';FLOW.forEach(function(s,i){h+='<li class="'+(i<=idx?'on':'')+'">'+esc(stName(s))+'</li>';});h+='</ol>';}
+    h+='<ul class="colines">';(o.items||[]).forEach(function(l){h+='<li><span>'+esc(l.name)+' × '+l.qty+'</span><b>'+money(l.price*l.qty)+'</b></li>';});h+='</ul>';
+    h+='<dl class="cototal"><dt>'+T('商品金額','Items')+'</dt><dd>'+money(o.subtotal)+'</dd><dt>'+T('運費','Shipping')+'</dt><dd>'+(o.shipping?money(o.shipping):T('免運','Free'))+'</dd><dt class="cot">'+T('總金額','Total')+'</dt><dd class="cot">'+money(o.total)+'</dd></dl>';
+    if(o.sizes)h+='<p class="olmeta">'+T('T恤尺寸：','T-shirt sizes: ')+esc(o.sizes)+'</p>';
+    if(o.reward_amount)h+='<p class="cotier">🎁 '+esc(o.reward_perks)+(o.reward_choice?'<br><small>'+T('你的選擇：','Your choice: ')+esc(o.reward_choice)+'</small>':'')+'</p>';
+    if(o.status==='待付款'||o.status==='已回報匯款'){
+      h+=bankBox(o.bank,o.total,o.pay_by);
+      h+='<form class="olpay" id="olPay"><label><span>'+(o.transfer_reported?T('已回報過，需要更正末五碼嗎？','Already reported. Need to correct the last 5 digits?'):T('匯款後，回報你的帳號末五碼','After transferring, report the last 5 digits of your account'))+'</span><input id="olLast5" inputmode="numeric" maxlength="5" pattern="\\d{5}" placeholder="12345"></label><button type="submit" class="evbtn">'+T('回報匯款','Report transfer')+'</button><p class="bdstatus" id="olPayMsg" role="status"></p></form>';
+    }
+    if(o.tracking_no)h+='<p class="olmeta">'+T('物流單號：','Tracking no.: ')+'<b>'+esc(o.tracking_no)+'</b></p>';
+    h+='</article>';box.innerHTML=h;
+    var f=document.getElementById('olPay');if(f)f.addEventListener('submit',function(e){e.preventDefault();var d=val('olLast5'),m=document.getElementById('olPayMsg');
+      if(!/^\d{5}$/.test(d)){m.textContent=T('請輸入 5 位數字。','Please enter 5 digits.');return;}
+      m.textContent=T('送出中…','Sending…');
+      rpc('report_transfer',{p_order_no:lastQ.no,p_phone:lastQ.phone,p_last5:d}).then(function(){m.textContent=T('已收到！團隊核對款項後會更新狀態。','Got it! We will update the status once payment is confirmed.');setTimeout(function(){lookup(lastQ.no,lastQ.phone);},900);})
+        .catch(function(){m.textContent=T('回報失敗，請確認訂單狀態或稍後再試。','Could not report. Please check the order status or try again later.');});});
+  }
+  renderLookup();
+  window.addEventListener('hashchange',function(){if(location.hash==='#order'){var last={};try{last=JSON.parse(localStorage.getItem('shinepal_last_order')||'{}')||{};}catch(_){}if(last.no&&!res){lastQ=last;renderLookup();lookup(last.no,last.phone);}}});
+})();
+</script>
+
 </body></html>
